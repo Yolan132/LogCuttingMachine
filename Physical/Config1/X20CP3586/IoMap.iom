@@ -1,0 +1,7 @@
+VAR_CONFIG
+	::Main:RunConveyor AT %IX."X20DI9371".DigitalInput01;
+	::Main:SawRunAxis AT %IX."X20DI9371".DigitalInput02;
+	::Main:SawBackward AT %IX."X20DI9371".DigitalInput06;
+	::Tasmociag:MpAxisConveyor.MoveVelocity AT %QX."X20DO9322".DigitalOutput01;
+	::Main:SawForward AT %IX."X20DI9371".DigitalInput05;
+END_VAR

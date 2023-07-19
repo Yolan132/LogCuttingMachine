@@ -1,0 +1,6 @@
+VAR
+	gConveyorSettings : gConvoyerSettingsType;
+	gPerpendicularAxisSettings : gPerpendicularAxisType;
+	gSawOn : BOOL;
+	gParallelAxisSettings : gParallelAxisType;
+END_VAR

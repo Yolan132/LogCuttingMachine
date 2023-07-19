@@ -1,0 +1,12 @@
+VAR
+	ConveyorSpeed : REAL;
+	PerpendicularStep : REAL;
+	ParallelStep : REAL;
+	RunConveyor : BOOL;
+	SawRunAxis : BOOL;
+	SawOn : BOOL;
+	SawForward : BOOL;
+	SawLeft : BOOL;
+	SawBackward : BOOL;
+	SawRight : BOOL;
+END_VAR

@@ -1,0 +1,5 @@
+VAR
+	MpPerpendicularPar : MpAxisBasicParType;
+	MpAxisPerpendicular : MpAxisBasic;
+	SMachine : StateMachineTyp;
+END_VAR

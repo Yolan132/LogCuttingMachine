@@ -1,0 +1,5 @@
+VAR
+	MpParallelPar : MpAxisBasicParType;
+	MpAxisParallel : MpAxisBasic;
+	SMachine : StateMachineTyp;
+END_VAR
