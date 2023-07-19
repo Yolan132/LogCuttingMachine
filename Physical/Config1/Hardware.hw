@@ -257,7 +257,6 @@
     </Connector>
     <Parameter ID="ConfigurationID" Value="FlyingSaw2023_Config1" />
     <Parameter ID="UserPartitionSize" Value="0" />
-    <Parameter ID="Simulation" Value="1" />
     <Parameter ID="TimerDeviceType" Value="EPLX2X" />
     <Parameter ID="TimerDevice" Value="X20CP3586.IF3" />
     <Parameter ID="TaskClassIdleTime" Value="2000" />
