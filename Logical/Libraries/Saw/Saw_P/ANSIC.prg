@@ -4,6 +4,5 @@
   <Files>
     <File Description="Init, cyclic, exit code">Main.cpp</File>
     <File Description="Local variables" Private="true">Variables.var</File>
-    <File Description="Local data types" Private="true">Types.typ</File>
   </Files>
 </Program>

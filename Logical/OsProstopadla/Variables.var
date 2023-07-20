@@ -1,5 +1,10 @@
+	
 VAR
 	MpPerpendicularPar : MpAxisBasicParType;
 	MpAxisPerpendicular : MpAxisBasic;
-	SMachine : StateMachineTyp;
+	InitMachine : InitProcessTyp;
+	WorkManMachine : WorkManProcessTyp;
+	MenageMachine : MenagementTyp;
 END_VAR
+
+

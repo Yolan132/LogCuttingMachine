@@ -6,7 +6,7 @@
     <Selector ID="BaseType" Value="LinearBounded">
       <Property ID="MeasurementUnit" Value="5067858" />
       <Property ID="MeasurementResolutionIsReadOnly" Value="0" />
-      <Property ID="MeasurementResolution" Value="0.01" />
+      <Property ID="MeasurementResolution" Value="0.001" />
       <Property ID="CountDirectionIsReadOnly" Value="0" />
       <Property ID="CountDirection" Value="Standard" />
     </Selector>
@@ -15,8 +15,8 @@
       <Group ID="Position">
         <Property ID="LowerLimitMin" Value="-1.79769313486231E308" />
         <Property ID="UpperLimitMax" Value="1.79769313486231E308" />
-        <Property ID="LowerLimit" Value="-60" />
-        <Property ID="UpperLimit" Value="120" />
+        <Property ID="LowerLimit" Value="-0.6" />
+        <Property ID="UpperLimit" Value="1.2" />
       </Group>
       <Property ID="VelocityIsReadOnly" Value="0" />
       <Selector ID="Velocity">
@@ -50,8 +50,8 @@
       <Group ID="Position">
         <Property ID="LowerLimitMin" Value="-1.79769313486231E308" />
         <Property ID="UpperLimitMax" Value="1.79769313486231E308" />
-        <Property ID="LowerLimit" Value="-80" />
-        <Property ID="UpperLimit" Value="80" />
+        <Property ID="LowerLimit" Value="-0.8" />
+        <Property ID="UpperLimit" Value="0.8" />
       </Group>
       <Property ID="VelocityIsReadOnly" Value="0" />
       <Selector ID="Velocity">
@@ -61,12 +61,12 @@
       <Property ID="AccelerationIsReadOnly" Value="0" />
       <Selector ID="Acceleration">
         <Property ID="AccelerationMax" Value="3.4E38" />
-        <Property ID="Acceleration" Value="3600" />
+        <Property ID="Acceleration" Value="50" />
       </Selector>
       <Property ID="DecelerationIsReadOnly" Value="0" />
       <Selector ID="Deceleration">
         <Property ID="DecelerationMax" Value="3.4E38" />
-        <Property ID="Deceleration" Value="3600" />
+        <Property ID="Deceleration" Value="50" />
       </Selector>
     </Selector>
     <Selector ID="Alarms" Value="None" />

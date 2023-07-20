@@ -1,78 +1,92 @@
 
 PROGRAM _INIT
+	MpParallelPar.Homing.Mode := 140;
+	MpParallelPar.Velocity := 0.2;
+	
 	MpAxisParallel.Enable := TRUE;
 	MpAxisParallel.MpLink := ADR(gParallelAxis);
 	MpAxisParallel.Parameters := ADR(MpParallelPar);
 	
-	SMachine := INIT;
+	InitMachine := INIT;
+	WorkManMachine := WAIT;
 	 
 END_PROGRAM
 
 PROGRAM _CYCLIC
 	MpAxisParallel();
+	MenageMachine := gStateSetter;
 	
-	CASE SMachine OF
-		INIT:
-			MpAxisParallel.Power := FALSE;
-			MpAxisParallel.Home := FALSE;
+	CASE MenageMachine OF
+		WARMUP:
+			CASE InitMachine OF
+				INIT:
+					IF MpAxisParallel.Info.ReadyToPowerOn THEN
+						InitMachine := POWER;
+					END_IF;
+		
+				POWER:
+					MpAxisParallel.Power := TRUE;
 			
-			IF EDGEPOS(gParallelAxisSettings.diRunAxis) AND MpAxisParallel.Info.ReadyToPowerOn THEN
-	  			SMachine := POWER;
-			END_IF;
+					IF MpAxisParallel.PowerOn THEN
+						InitMachine := HOME;
+					END_IF;
+		
+				HOME:
+					MpAxisParallel.Home := TRUE;
+					Saw_SimOutputs.aoDriveParallelPosition := LREAL_TO_REAL(MpAxisParallel.Position);
+					IF MpAxisParallel.IsHomed THEN
+						
+						InitMachine := DONE;
+					END_IF;
+		
+				DONE:
+					gParallelSettings.doReadyToWork := TRUE;
+
+			END_CASE;
 			
-		POWER:
-			MpAxisParallel.Power := TRUE;
-			
-			IF MpAxisParallel.PowerOn THEN
-	  			SMachine := HOME;
-			END_IF;
-			
-		HOME:
-			IF NOT(MpAxisParallel.IsHomed) THEN
-				MpAxisParallel.Home := TRUE;
-			END_IF;
-			
-			IF MpAxisParallel.IsHomed THEN
-				SMachine := WAIT;
-			END_IF;	
-			
-		WAIT:
-			MpAxisParallel.MoveAbsolute := FALSE;
-			
-			IF EDGEPOS(gParallelAxisSettings.diLeft) AND NOT(Saw_SimInputs.diDriveParallelAtFront) THEN
-				MpParallelPar.Position := MpAxisParallel.Position + gParallelAxisSettings.aiParallelStep;
-				Saw_SimOutputs.aoDriveParallelPosition := Saw_SimOutputs.aoDriveParallelPosition + gParallelAxisSettings.aiParallelStep;
+		WORK_M:
+			CASE WorkManMachine OF
+				WAIT:
+					MpAxisParallel.MoveAbsolute := FALSE;
+					
+					IF EDGEPOS(gParallelSettings.diLeft) AND NOT(Saw_SimInputs.diDriveParallelAtFront) THEN
+						MpParallelPar.Position := MpAxisParallel.Position + gParallelSettings.aiParallelStep;
 				
-				SMachine := RUNL;
-			END_IF;
+						WorkManMachine := RUN;
+					END_IF;
 			
-			IF EDGEPOS(gParallelAxisSettings.diRight) AND NOT(Saw_SimInputs.diDriveParallelAtBack) THEN
-				MpParallelPar.Position := MpAxisParallel.Position - gParallelAxisSettings.aiParallelStep;
-				Saw_SimOutputs.aoDriveParallelPosition := Saw_SimOutputs.aoDriveParallelPosition - gParallelAxisSettings.aiParallelStep;
+					IF EDGEPOS(gParallelSettings.diRight) AND NOT(Saw_SimInputs.diDriveParallelAtBack) THEN
+						MpParallelPar.Position := MpAxisParallel.Position - gParallelSettings.aiParallelStep;
 				
-				SMachine := RUNR;
-			END_IF;
+						WorkManMachine := RUN;
+					END_IF;
 			
-			IF NOT(gParallelAxisSettings.diRunAxis) THEN
-				SMachine := INIT;
-			END_IF;
+					IF EDGEPOS(gOperatingPanel.diStop) THEN
+						gStateSetter := 0;
+					END_IF;
+					
+				RUN:
+					MpAxisParallel.MoveAbsolute := TRUE;
+					Saw_SimOutputs.aoDriveParallelPosition := LREAL_TO_REAL(MpAxisParallel.Position);
+					IF MpAxisParallel.MoveDone THEN
+						WorkManMachine := WAIT;
+					END_IF;
+
+			END_CASE;
 			
-		RUNL:
-			MpAxisParallel.MoveAbsolute := TRUE;
+		WORK_A:
 			
-			IF MpAxisParallel.MoveDone THEN
-				SMachine := WAIT;
-			END_IF;
-			
-		RUNR:
-			MpAxisParallel.MoveAbsolute := TRUE;
-			
-			IF MpAxisParallel.MoveDone THEN
-				SMachine := WAIT;
-			END_IF;
+		
+		IDLE:
+
+		
 
 	END_CASE;
-	 
+	
+	
+	
+
+	
 END_PROGRAM
 
 PROGRAM _EXIT

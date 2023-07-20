@@ -1,5 +1,7 @@
 VAR
 	MpParallelPar : MpAxisBasicParType;
 	MpAxisParallel : MpAxisBasic;
-	SMachine : StateMachineTyp;
+	InitMachine : InitProcessTyp;
+	WorkManMachine : WorkManProcessTyp;
+	MenageMachine : MenagementTyp;
 END_VAR

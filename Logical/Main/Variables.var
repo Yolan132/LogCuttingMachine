@@ -1,12 +1,14 @@
 VAR
+	diInit : BOOL;
 	ConveyorSpeed : REAL;
 	PerpendicularStep : REAL;
+	SMachine : StateMachineTyp;
 	ParallelStep : REAL;
 	RunConveyor : BOOL;
-	SawRunAxis : BOOL;
 	SawOn : BOOL;
 	SawForward : BOOL;
 	SawLeft : BOOL;
 	SawBackward : BOOL;
 	SawRight : BOOL;
+	OperatingMode : INT;
 END_VAR

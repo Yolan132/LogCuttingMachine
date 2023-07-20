@@ -1,12 +1,25 @@
 
-TYPE
-	StateMachineTyp : 
+TYPE	
+	InitProcessTyp :
 		(
 		INIT := 0,
 		POWER := 1,
-		HOME := 2,
-		WAIT := 3,
-		RUNL := 4,
-		RUNR := 5
-		);
+		HOME:= 2,
+		DONE := 3
+	);
+	
+	WorkManProcessTyp :
+		(
+		WAIT := 0,
+		RUN := 1
+	);
+
+	MenagementTyp:
+		(
+		IDLE := 0,
+		WARMUP := 1,
+		WORK_M := 2,
+		WORK_A := 3
+	);
+	
 END_TYPE

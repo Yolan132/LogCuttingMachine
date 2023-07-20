@@ -1,6 +1,8 @@
 VAR
+	gOperatingPanel : gOperatingPanelTyp;
+	gStateSetter : INT;
 	gConveyorSettings : gConvoyerSettingsType;
-	gPerpendicularAxisSettings : gPerpendicularAxisType;
+	gPerpendicularSettings : gPerpendicularSettingsType;
 	gSawOn : BOOL;
-	gParallelAxisSettings : gParallelAxisType;
+	gParallelSettings : gParallelSettingsType;
 END_VAR

@@ -1,82 +1,93 @@
 
 PROGRAM _INIT
+	MpPerpendicularPar.Homing.Mode := 140;
+	MpPerpendicularPar.Velocity := 0.2;
+	
 	MpAxisPerpendicular.Enable := TRUE;
 	MpAxisPerpendicular.MpLink := ADR(gPerpendicularAxis);
 	MpAxisPerpendicular.Parameters := ADR(MpPerpendicularPar);
 	
-	SMachine := INIT;
-	
-	
+	InitMachine := INIT;
+	WorkManMachine := WAIT;
+	 
 END_PROGRAM
 
 PROGRAM _CYCLIC
-	
 	MpAxisPerpendicular();
+	MenageMachine := gStateSetter;
 	
-	CASE SMachine OF
-		INIT:
-			MpAxisPerpendicular.Power := FALSE;
-			MpAxisPerpendicular.Home := FALSE;
-			
-			IF EDGEPOS(gPerpendicularAxisSettings.diRunAxis) AND MpAxisPerpendicular.Info.ReadyToPowerOn THEN
-	  			SMachine := POWER;
-			END_IF;
-			
-		POWER:
-			MpAxisPerpendicular.Power := TRUE;
-			
-			IF MpAxisPerpendicular.PowerOn THEN
-	  			SMachine := HOME;
-			END_IF;
-			
-		HOME:
-			IF NOT(MpAxisPerpendicular.IsHomed) THEN
-				MpAxisPerpendicular.Home := TRUE;
-			END_IF;
-			
-			IF MpAxisPerpendicular.IsHomed THEN
-				SMachine := WAIT;
-			END_IF;
-			
-		WAIT:
-			MpAxisPerpendicular.MoveAbsolute := FALSE;
-			
-			IF EDGEPOS(gPerpendicularAxisSettings.diBackward) AND NOT(Saw_SimInputs.diDriveCutAtBack) THEN
-				MpPerpendicularPar.Position := MpAxisPerpendicular.Position - gPerpendicularAxisSettings.aiPerpendicularStep;
-				Saw_SimOutputs.aoDriveCutPosition := Saw_SimOutputs.aoDriveCutPosition - gPerpendicularAxisSettings.aiPerpendicularStep;
-				
-				SMachine := RUNB;
-			END_IF;
+	CASE MenageMachine OF
+		WARMUP:
+			CASE InitMachine OF
+				INIT:
+					IF MpAxisPerpendicular.Info.ReadyToPowerOn THEN
+						InitMachine := POWER;
+					END_IF;
 		
-			IF EDGEPOS(gPerpendicularAxisSettings.diForward) AND NOT(Saw_SimInputs.diDriveCutAtFront) THEN
-				MpPerpendicularPar.Position := MpAxisPerpendicular.Position + gPerpendicularAxisSettings.aiPerpendicularStep;
-				Saw_SimOutputs.aoDriveCutPosition := Saw_SimOutputs.aoDriveCutPosition + gPerpendicularAxisSettings.aiPerpendicularStep;
-				
-				SMachine := RUNF;
-			END_IF;
+				POWER:
+					MpAxisPerpendicular.Power := TRUE;
 			
-			IF NOT(gPerpendicularAxisSettings.diRunAxis) THEN
-				SMachine := INIT;
-			END_IF;
+					IF MpAxisPerpendicular.PowerOn THEN
+						InitMachine := HOME;
+					END_IF;
 		
-		RUNB:
-			MpAxisPerpendicular.MoveAbsolute := TRUE;
+				HOME:
+					MpAxisPerpendicular.Home := TRUE;
+					Saw_SimOutputs.aoDriveCutPosition := LREAL_TO_REAL(MpAxisPerpendicular.Position);
+					IF MpAxisPerpendicular.IsHomed THEN
+						
+						InitMachine := DONE;
+					END_IF;
+		
+				DONE:
+					gPerpendicularSettings.doReadyToWork := TRUE;
+
+			END_CASE;
 			
-			IF MpAxisPerpendicular.MoveDone THEN
-				SMachine := WAIT;
-			END_IF;
+		WORK_M:
+			CASE WorkManMachine OF
+				WAIT:
+					MpAxisPerpendicular.MoveAbsolute := FALSE;
+					
+					IF EDGEPOS(gPerpendicularSettings.diForward) AND NOT(Saw_SimInputs.diDriveCutAtFront) THEN
+						MpPerpendicularPar.Position := MpAxisPerpendicular.Position + gPerpendicularSettings.aiPerpendicularStep;
+				
+						WorkManMachine := RUN;
+					END_IF;
 			
-		RUNF:
-			MpAxisPerpendicular.MoveAbsolute := TRUE;
+					IF EDGEPOS(gPerpendicularSettings.diBackward) AND NOT(Saw_SimInputs.diDriveCutAtBack) THEN
+						MpPerpendicularPar.Position := MpAxisPerpendicular.Position - gPerpendicularSettings.aiPerpendicularStep;
+				
+						WorkManMachine := RUN;
+					END_IF;
 			
-			IF MpAxisPerpendicular.MoveDone THEN				
-				SMachine := WAIT;
-			END_IF;
+					IF EDGEPOS(gOperatingPanel.diStop) THEN
+						gStateSetter := 0;
+					END_IF;
+					
+				RUN:
+					MpAxisPerpendicular.MoveAbsolute := TRUE;
+					Saw_SimOutputs.aoDriveCutPosition := LREAL_TO_REAL(MpAxisPerpendicular.Position);
+					
+					IF MpAxisPerpendicular.MoveDone THEN
+						WorkManMachine := WAIT;
+					END_IF;
+
+			END_CASE;
 			
+		WORK_A:
+			
+		
+		IDLE:
+
+		
 
 	END_CASE;
 	
-	 
+	
+	
+
+	
 END_PROGRAM
 
 PROGRAM _EXIT
