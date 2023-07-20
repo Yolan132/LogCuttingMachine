@@ -9,9 +9,9 @@
   <TaskClass Name="Cyclic#3" />
   <TaskClass Name="Cyclic#4">
     <Task Name="Main" Source="Main.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="Tasmociag" Source="Tasmociag.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="OsRownoleg" Source="OsRownolegla.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="OsProstopa" Source="OsProstopadla.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="ConveyorAx" Source="ConveyorAxis.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="OsRownoleg" Source="ParallelAxis.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="OsProstopa" Source="PerpendicularAxis.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#5" />
   <TaskClass Name="Cyclic#6" />

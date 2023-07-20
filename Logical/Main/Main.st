@@ -17,7 +17,7 @@ PROGRAM _CYCLIC
 		INIT:
 			gStateSetter := 1;
 			
-			IF gParallelSettings.doReadyToWork AND gPerpendicularSettings.doReadyToWork THEN
+			IF gParallelSettings.doReadyToWork AND gPerpendicularSettings.doReadyToWork AND gConveyorSettings.doReadyToWork THEN
 	  			SMachine := READY;
 			END_IF;
 		
@@ -35,7 +35,7 @@ PROGRAM _CYCLIC
 			END_IF;
 			
 		MANUAL:
-			gConveyorSettings.diActive := RunConveyor;
+			gConveyorSettings.diRun := RunConveyor;
 			gConveyorSettings.aiSpeed := ConveyorSpeed;
 	
 			gParallelSettings.diLeft := SawLeft;

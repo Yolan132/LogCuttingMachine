@@ -5,7 +5,8 @@ TYPE
 		diStop : BOOL;
 	END_STRUCT;
 	gConvoyerSettingsType : 	STRUCT 
-		diActive : BOOL;
+		doReadyToWork : BOOL;
+		diRun : BOOL;
 		aiSpeed : REAL;
 	END_STRUCT;
 	gParallelSettingsType : 	STRUCT 

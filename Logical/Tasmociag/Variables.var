@@ -1,5 +1,0 @@
-VAR
-	SMachine : StateMachineTyp;
-	MpConveyorPar : MpAxisBasicParType;
-	MpAxisConveyor : MpAxisBasic;
-END_VAR

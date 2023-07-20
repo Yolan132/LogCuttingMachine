@@ -7,8 +7,8 @@
     <Object Type="Package" Description="Global libraries">Libraries</Object>
     <Object Type="File" Description="Global data types">MNG_Global.typ</Object>
     <Object Type="Program" Language="IEC">Main</Object>
-    <Object Type="Program" Language="IEC">OsRownolegla</Object>
-    <Object Type="Program" Language="IEC">OsProstopadla</Object>
-    <Object Type="Program" Language="IEC">Tasmociag</Object>
+    <Object Type="Program" Language="IEC">ParallelAxis</Object>
+    <Object Type="Program" Language="IEC">PerpendicularAxis</Object>
+    <Object Type="Program" Language="IEC">ConveyorAxis</Object>
   </Objects>
 </Package>

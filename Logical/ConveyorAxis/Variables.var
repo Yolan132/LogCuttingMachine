@@ -1,0 +1,7 @@
+VAR
+	MpConveyorPar : MpAxisBasicParType;
+	MpAxisConveyor : MpAxisBasic;
+	InitMachine : InitProcessTyp;
+	WorkManMachine : WorkProcessTyp;
+	MenageMachine : MenagementTyp;
+END_VAR
