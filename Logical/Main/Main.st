@@ -56,7 +56,7 @@ PROGRAM _CYCLIC
 		ERROR:
 		
 		WAIT_FOR_INIT:
-			IF EDGEPOS(diInit) THEN
+			IF EDGEPOS(InitializeMachine) THEN
 	  			SMachine := INIT;
 			END_IF;
 		  

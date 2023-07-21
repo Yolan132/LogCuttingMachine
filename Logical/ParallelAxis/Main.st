@@ -13,7 +13,6 @@ PROGRAM _INIT
 END_PROGRAM
 
 PROGRAM _CYCLIC
-	MpAxisParallel();
 	MenageMachine := gStateSetter;
 	
 	CASE MenageMachine OF
@@ -33,14 +32,15 @@ PROGRAM _CYCLIC
 		
 				HOME:
 					MpAxisParallel.Home := TRUE;
-					Saw_SimOutputs.aoDriveParallelPosition := LREAL_TO_REAL(MpAxisParallel.Position);
+					
 					IF MpAxisParallel.IsHomed THEN
-						
+						MpAxisParallel.Home := FALSE;
 						InitMachine := DONE;
 					END_IF;
 		
 				DONE:
 					gParallelSettings.doReadyToWork := TRUE;
+					
 
 			END_CASE;
 			
@@ -65,10 +65,21 @@ PROGRAM _CYCLIC
 						gStateSetter := 0;
 					END_IF;
 					
+					IF EDGEPOS(gOperatingPanel.diHomeParallel) THEN
+						WorkManMachine := HOMEAGAIN;
+					END_IF;
+					
 				RUN:
 					MpAxisParallel.MoveAbsolute := TRUE;
-					Saw_SimOutputs.aoDriveParallelPosition := LREAL_TO_REAL(MpAxisParallel.Position);
+					
 					IF MpAxisParallel.MoveDone THEN
+						WorkManMachine := WAIT;
+					END_IF;
+				
+				HOMEAGAIN:
+					MpAxisParallel.Home := TRUE;
+					
+					IF EDGEPOS(MpAxisParallel.IsHomed) THEN
 						WorkManMachine := WAIT;
 					END_IF;
 
@@ -84,8 +95,8 @@ PROGRAM _CYCLIC
 	END_CASE;
 	
 	
-	
-
+	Saw_SimOutputs.aoDriveParallelPosition := LREAL_TO_REAL(MpAxisParallel.Position);
+	MpAxisParallel();
 	
 END_PROGRAM
 

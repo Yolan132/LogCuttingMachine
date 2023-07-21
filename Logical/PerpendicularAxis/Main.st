@@ -13,7 +13,6 @@ PROGRAM _INIT
 END_PROGRAM
 
 PROGRAM _CYCLIC
-	MpAxisPerpendicular();
 	MenageMachine := gStateSetter;
 	
 	CASE MenageMachine OF
@@ -32,15 +31,16 @@ PROGRAM _CYCLIC
 					END_IF;
 		
 				HOME:
-					MpAxisPerpendicular.Home := TRUE;
-					Saw_SimOutputs.aoDriveCutPosition := LREAL_TO_REAL(MpAxisPerpendicular.Position);
+					MpAxisPerpendicular.Home := TRUE;	
+					
 					IF MpAxisPerpendicular.IsHomed THEN
-						
+						MpAxisPerpendicular.Home := FALSE;
 						InitMachine := DONE;
 					END_IF;
 		
 				DONE:
 					gPerpendicularSettings.doReadyToWork := TRUE;
+					MpAxisPerpendicular.Home := FALSE;
 
 			END_CASE;
 			
@@ -65,13 +65,25 @@ PROGRAM _CYCLIC
 						gStateSetter := 0;
 					END_IF;
 					
+					IF EDGEPOS(gOperatingPanel.diHomePerpendicular) THEN
+						WorkManMachine := HOMEAGAIN;
+					END_IF;
+					
 				RUN:
 					MpAxisPerpendicular.MoveAbsolute := TRUE;
-					Saw_SimOutputs.aoDriveCutPosition := LREAL_TO_REAL(MpAxisPerpendicular.Position);
 					
 					IF MpAxisPerpendicular.MoveDone THEN
 						WorkManMachine := WAIT;
 					END_IF;
+				
+				HOMEAGAIN:
+					MpAxisPerpendicular.Home := TRUE;
+					Saw_SimOutputs.aoDriveCutPosition := LREAL_TO_REAL(MpAxisPerpendicular.Position);
+					
+					IF MpAxisPerpendicular.IsHomed THEN
+						WorkManMachine := WAIT;
+					END_IF;
+
 
 			END_CASE;
 			
@@ -84,8 +96,8 @@ PROGRAM _CYCLIC
 
 	END_CASE;
 	
-	
-	
+	Saw_SimOutputs.aoDriveCutPosition := LREAL_TO_REAL(MpAxisPerpendicular.Position);
+	MpAxisPerpendicular();
 
 	
 END_PROGRAM

@@ -3,6 +3,8 @@ TYPE
 	gOperatingPanelTyp : 	STRUCT 
 		diStart : BOOL;
 		diStop : BOOL;
+		diHomeParallel : BOOL;
+		diHomePerpendicular : BOOL;
 	END_STRUCT;
 	gConvoyerSettingsType : 	STRUCT 
 		doReadyToWork : BOOL;

@@ -1,5 +1,5 @@
 VAR
-	diInit : BOOL;
+	InitializeMachine : BOOL;
 	ConveyorSpeed : REAL;
 	PerpendicularStep : REAL;
 	SMachine : StateMachineTyp;
