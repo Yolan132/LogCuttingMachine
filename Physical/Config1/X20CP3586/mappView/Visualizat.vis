@@ -1,18 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <vdef:Visualization id="HMI" autoUpdate="true" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
-	<StartPage pageRefId="MainPage" />
+  <StartPage pageRefId="LoginPage" />
   <Pages>
     <Page refId="MainPage" />
     <Page refId="InitPage" />
     <Page refId="ManualPage" />
     <Page refId="ServicePage" />
+    <Page refId="LoginPage" />
+    <Page refId="SwitchUserPage" />
   </Pages>
   <Navigations />
   <BindingsSets>
     <BindingsSet refId="ContentMainPage_binding" />
     <BindingsSet refId="ContentManPage_binding" />
+    <BindingsSet refId="MainContent_binding" />
   </BindingsSets>
-  <EventBindingsSets />
+  <EventBindingsSets>
+    <EventBindingsSet refId="MainContent_eventbinding" />
+    <EventBindingsSet refId="LoginMainCntent_eventbinding" />
+  </EventBindingsSets>
   <Dialogs />
   <Contents>
     <Content refId="ContentMainPage" />
@@ -28,6 +34,11 @@
     <Content refId="InfoServContent" />
     <Content refId="MainServContent" />
     <Content refId="MainContent" />
+    <Content refId="LoginMainCntent" />
+    <Content refId="SwitchUserMainContent" />
+    <Content refId="SwitchUserNavContent" />
+    <Content refId="SwitchUserHeadContent" />
+    <Content refId="SwitchUserInfoContent" />
   </Contents>
   <SnippetsSets />
   <VariablesSets />

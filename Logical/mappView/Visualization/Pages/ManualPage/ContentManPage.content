@@ -1,35 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="ContentManPage" height="660" width="1160" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="SawBackwardButton" top="410" left="750" width="60" height="60" zIndex="0" text="Back" margin="10px" />
-    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="SawForwardButton" top="530" left="750" width="60" height="60" zIndex="1" text="Front" margin="10px" />
-    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="SawRightButton" top="470" left="840" width="60" height="60" zIndex="2" text="Right" margin="10px" />
-    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="SawLeftButton" top="470" left="660" width="60" height="60" zIndex="3" text="Left" margin="10px" />
-    <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput1" top="140" left="1020" zIndex="4" />
-    <Widget xsi:type="widgets.brease.NumericInput" id="SetConvoyerVelocity" top="180" left="1020" zIndex="5" />
-    <Widget xsi:type="widgets.brease.Label" id="ConvoyerVeloText" top="140" left="860" width="140" zIndex="6" text="Convoyer velocity:" />
-    <Widget xsi:type="widgets.brease.Label" id="SetConvoyerText" top="180" left="840" width="160" zIndex="7" text="Set convoyer velocity:" />
-    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="StartConvoyerButton" top="290" left="890" zIndex="8" text="StartConvoyer" margin="10px" />
-    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="StopConvoyerButton" top="350" left="890" zIndex="9" text="StopConvoyer" margin="10px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="SawBackwardButton" top="370" left="690" width="60" height="60" zIndex="0" text="Back" margin="10px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="SawForwardButton" top="490" left="690" width="60" height="60" zIndex="1" text="Front" margin="10px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="SawRightButton" top="430" left="780" width="60" height="60" zIndex="2" text="Right" margin="10px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="SawLeftButton" top="430" left="600" width="60" height="60" zIndex="3" text="Left" margin="10px" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput1" top="40" left="980" zIndex="4" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="SetConvoyerVelocity" top="80" left="980" zIndex="5" />
+    <Widget xsi:type="widgets.brease.Label" id="ConvoyerVeloText" top="40" left="820" width="140" zIndex="6" text="Convoyer velocity:" />
+    <Widget xsi:type="widgets.brease.Label" id="SetConvoyerText" top="80" left="800" width="160" zIndex="7" text="Set convoyer velocity:" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="StartConvoyerButton" top="250" left="830" zIndex="8" text="StartConvoyer" margin="10px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="StopConvoyerButton" top="310" left="830" zIndex="9" text="StopConvoyer" margin="10px" />
     <Widget xsi:type="widgets.brease.MomentaryPushButton" id="HomeParallelButton" top="430" left="150" width="141" zIndex="10" text="HomeParallel" margin="10px" />
     <Widget xsi:type="widgets.brease.MomentaryPushButton" id="HomePerpendicularButton" top="491" left="150" width="141" zIndex="11" text="HomePerpedicular" margin="10px" />
-    <Widget xsi:type="widgets.brease.NumericOutput" id="PerpStepOut" top="40" left="1020" zIndex="12" />
-    <Widget xsi:type="widgets.brease.NumericInput" id="PerpStepIn" top="80" left="1020" zIndex="13" />
-    <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput3" top="40" left="660" zIndex="14" />
-    <Widget xsi:type="widgets.brease.NumericInput" id="NumericInput2" top="80" left="660" zIndex="15" />
-    <Widget xsi:type="widgets.brease.Label" id="CurrentPerStep" top="40" left="820" width="200" zIndex="16" text="Current perpendicular step:" />
-    <Widget xsi:type="widgets.brease.Label" id="SetNewPerStep" top="80" left="820" width="201" zIndex="17" text="Set new perpendicular step:" />
-    <Widget xsi:type="widgets.brease.Label" id="CurrentParStep" top="40" left="500" width="160" zIndex="18" text="Current parallel step:" />
-    <Widget xsi:type="widgets.brease.Label" id="SetNewParStep" top="80" left="500" width="160" zIndex="19" text="Set new parallel step:" />
-    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="StartSawButton" top="290" left="570" zIndex="20" text="StartSaw" margin="10px" />
-    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="StopSawButton" top="350" left="570" zIndex="21" text="StopSaw" margin="10px" />
-    <Widget xsi:type="widgets.brease.AlarmList" id="AlarmList1" top="60" left="40" width="400" height="260" zIndex="22">
-      <Widgets>
-        <Widget xsi:type="widgets.brease.AlarmListItem" id="AlarmListItem1" zIndex="0" text="AlarmListItem1" />
-        <Widget xsi:type="widgets.brease.AlarmListItem" id="AlarmListItem2" zIndex="1" text="AlarmListItem2" />
-      </Widgets>
-    </Widget>
-    <Widget xsi:type="widgets.brease.Label" id="Label1" top="180" left="1120" width="20" zIndex="23" text="%" />
-    <Widget xsi:type="widgets.brease.Label" id="Label2" top="140" left="1120" width="20" zIndex="24" text="%" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="PerpStepOut" top="140" left="240" zIndex="12" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="PerpStepIn" top="180" left="240" zIndex="13" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput3" top="40" left="240" zIndex="14" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="NumericInput2" top="80" left="240" zIndex="15" />
+    <Widget xsi:type="widgets.brease.Label" id="CurrentPerStep" top="140" left="40" width="200" zIndex="16" text="Current perpendicular step:" />
+    <Widget xsi:type="widgets.brease.Label" id="SetNewPerStep" top="180" left="40" width="201" zIndex="17" text="Set new perpendicular step:" />
+    <Widget xsi:type="widgets.brease.Label" id="CurrentParStep" top="40" left="80" width="160" zIndex="18" text="Current parallel step:" />
+    <Widget xsi:type="widgets.brease.Label" id="SetNewParStep" top="80" left="80" width="160" zIndex="19" text="Set new parallel step:" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="StartSawButton" top="250" left="510" zIndex="20" text="StartSaw" margin="10px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="StopSawButton" top="310" left="510" zIndex="21" text="StopSaw" margin="10px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label1" top="80" left="1080" width="20" zIndex="22" text="%" />
+    <Widget xsi:type="widgets.brease.Label" id="Label2" top="40" left="1080" width="20" zIndex="23" text="%" />
   </Widgets>
 </Content>

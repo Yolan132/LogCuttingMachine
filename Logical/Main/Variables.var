@@ -1,5 +1,5 @@
 VAR
-	InitializeMachine : BOOL;
+	diInitializeMachine : BOOL;
 	ConveyorSpeed : REAL;
 	PerpendicularStep : REAL;
 	SawOff : BOOL;
@@ -13,4 +13,6 @@ VAR
 	SawBackward : BOOL;
 	SawRight : BOOL;
 	OperatingMode : INT;
+	HMIauto : BOOL;
+	HMIman : BOOL;
 END_VAR

@@ -8,6 +8,8 @@ PROGRAM _INIT
 	
 	gStateSetter := 0;
 	SMachine := WAIT_FOR_INIT;
+	
+	gInitProgressBarValue := 0;
 
 END_PROGRAM
 
@@ -17,11 +19,32 @@ PROGRAM _CYCLIC
 		INIT:
 			gStateSetter := 1;
 			
-			IF gParallelSettings.doReadyToWork AND gPerpendicularSettings.doReadyToWork AND gConveyorSettings.doReadyToWork THEN
-	  			SMachine := READY;
+			IF gParallelSettings.doReadyToWork THEN
+				gInitProgressBarValue := 60;
+				
+				IF gPerpendicularSettings.doReadyToWork THEN
+					gInitProgressBarValue := 130;
+					
+					IF gConveyorSettings.doReadyToWork THEN
+						gInitProgressBarValue := 200;
+						
+						SMachine := READY;
+					END_IF;
+				END_IF;
 			END_IF;
 		
-		READY:		
+		READY:	
+			gInitProgressBarValue := 255;
+			
+			IF HMIman THEN
+	  			OperatingMode := 1;
+			END_IF;
+			
+			IF HMIauto THEN
+	  			OperatingMode := 2;
+			END_IF;
+			
+			
 			IF EDGEPOS(gOperatingPanel.diStart) THEN
 				IF OperatingMode = 1 THEN
 					gStateSetter := 2;
@@ -69,7 +92,7 @@ PROGRAM _CYCLIC
 		ERROR:
 		
 		WAIT_FOR_INIT:
-			IF EDGEPOS(InitializeMachine) THEN
+			IF EDGEPOS(diInitializeMachine) THEN
 	  			SMachine := INIT;
 			END_IF;
 		  

@@ -2,19 +2,35 @@
 <?AutomationStudio FileVersion="4.9"?>
 <OpcUaSource FileVersion="9" ArVersion="F4.93">
   <Aliases>
-    <ACLAliases />
+    <ACLAliases>
+      <ACL Id="1">
+        <ACE RoleName="Shift Leader" Access="0x005F" />
+        <ACE RoleName="Service" Access="0x005F" />
+        <ACE RoleName="Operator" Access="0x005F" />
+      </ACL>
+      <ACL Id="2">
+        <ACE RoleName="Shift Leader" Access="0x007F" />
+        <ACE RoleName="Service" Access="0x007F" />
+        <ACE RoleName="Operator" Access="0x007F" />
+      </ACL>
+      <ACL Id="3">
+        <ACE RoleName="Shift Leader" Access="0x005F" />
+        <ACE RoleName="Service" Access="0x007F" />
+        <ACE RoleName="Operator" Access="0x005F" />
+      </ACL>
+    </ACLAliases>
     <EURangeViolationAliases />
     <EURangesAliases />
     <EngineeringUnitAliases />
   </Aliases>
-  <DefaultView>
+  <DefaultView AclId="2">
     <Module Name="&lt;Default&gt;">
       <GlobalVariables Name="Global Variables">
         <Variable Name="gOperatingPanel">
           <Variable Name="diStart" />
           <Variable Name="diStop" />
-          <Variable Name="diHomeParallel" />
-          <Variable Name="diHomePerpendicular" />
+          <Variable AclId="3" AclInherit="2" Name="diHomeParallel" />
+          <Variable AclId="3" AclInherit="2" Name="diHomePerpendicular" />
         </Variable>
         <Variable Name="gParallelSettings">
           <Variable Name="aiParallelStep" />
@@ -22,22 +38,25 @@
         <Variable Name="gPerpendicularSettings">
           <Variable Name="aiPerpendicularStep" />
         </Variable>
+        <Variable Name="gInitProgressBarValue" />
       </GlobalVariables>
       <Task Name="Main">
-        <Variable Name="ConveyorSpeed" />
-        <Variable Name="InitializeMachine" />
+        <Variable AclId="3" AclInherit="2" Name="ConveyorSpeed" />
         <Variable Name="OperatingMode" />
-        <Variable Name="ParallelStep" />
-        <Variable Name="PerpendicularStep" />
-        <Variable Name="SawBackward" />
-        <Variable Name="SawForward" />
-        <Variable Name="SawLeft" />
-        <Variable Name="SawOn" />
-        <Variable Name="SawRight" />
+        <Variable AclId="3" AclInherit="2" Name="ParallelStep" />
+        <Variable AclId="3" AclInherit="2" Name="PerpendicularStep" />
+        <Variable AclId="3" AclInherit="2" Name="SawBackward" />
+        <Variable AclId="3" AclInherit="2" Name="SawForward" />
+        <Variable AclId="3" AclInherit="2" Name="SawLeft" />
+        <Variable AclId="3" AclInherit="2" Name="SawOn" />
+        <Variable AclId="3" AclInherit="2" Name="SawRight" />
         <Variable Name="SMachine" />
-        <Variable Name="ConveyorOff" />
-        <Variable Name="ConveyorOn" />
-        <Variable Name="SawOff" />
+        <Variable AclId="3" AclInherit="2" Name="ConveyorOff" />
+        <Variable AclId="3" AclInherit="2" Name="ConveyorOn" />
+        <Variable AclId="3" AclInherit="2" Name="SawOff" />
+        <Variable Name="diInitializeMachine" />
+        <Variable Name="HMIauto" />
+        <Variable AclId="3" AclInherit="2" Name="HMIman" />
       </Task>
       <Task Name="ConveyorAx">
         <Variable Name="MpConveyorPar">

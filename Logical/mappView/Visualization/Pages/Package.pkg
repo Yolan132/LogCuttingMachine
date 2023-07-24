@@ -7,5 +7,7 @@
     <Object Type="Package">InitProcessPage</Object>
     <Object Type="Package">ManualPage</Object>
     <Object Type="Package">ServicePage</Object>
+    <Object Type="Package">LoginPage</Object>
+    <Object Type="Package">SwitchUserPage</Object>
   </Objects>
 </Package>

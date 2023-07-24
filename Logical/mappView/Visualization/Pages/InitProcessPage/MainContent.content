@@ -1,4 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Content id="MainContent" height="600" width="800" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2">
-  <Widgets></Widgets>
+<Content id="MainContent" height="740" width="1520" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.ProgressBar" id="ProgressBar1" top="260" left="520" zIndex="0" visible="false" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="InitButton" top="180" left="640" width="200" zIndex="1" text="Initialize Machine" />
+    <Widget xsi:type="widgets.brease.NavigationButton" id="ManualNavButton" top="500" left="680" zIndex="2" pageId="ManualPage" text="Go" visible="false" />
+    <Widget xsi:type="widgets.brease.NavigationButton" id="AutoNavButton" top="500" left="680" zIndex="3" pageId="MainPage" text="Go" visible="false" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="ManualChoiseButton" top="380" left="580" zIndex="4" text="Manual" visible="false" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="AutoChoiseButton" top="380" left="780" zIndex="5" text="Auto" visible="false" />
+    <Widget xsi:type="widgets.brease.Label" id="Label1" top="70" left="610" width="90" zIndex="6" text="Logged in as:" margin="10px" />
+    <Widget xsi:type="widgets.brease.LoginInfo" id="LoginInfo1" top="70" left="710" zIndex="7" margin="10px" />
+  </Widgets>
 </Content>

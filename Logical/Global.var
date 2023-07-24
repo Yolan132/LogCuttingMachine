@@ -1,4 +1,5 @@
 VAR
+	gInitProgressBarValue : USINT;
 	gOperatingPanel : gOperatingPanelTyp;
 	gStateSetter : INT;
 	gConveyorSettings : gConvoyerSettingsType;

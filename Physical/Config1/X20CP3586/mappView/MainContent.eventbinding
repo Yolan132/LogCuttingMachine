@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EventBindingSet id="MainContent_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+    <EventBinding id="MainContent.InitButton.Click">
+      <Source xsi:type="widgets.brease.MomentaryPushButton.Event" contentRefId="MainContent" widgetRefId="InitButton" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="widgets.brease.ProgressBar.Action" contentRefId="MainContent" widgetRefId="ProgressBar1">
+                <Method xsi:type="widgets.brease.ProgressBar.Action.SetVisible" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="widgets.brease.MomentaryPushButton.Action" contentRefId="MainContent" widgetRefId="InitButton">
+                <Method xsi:type="widgets.brease.MomentaryPushButton.Action.SetVisible" value="false" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="MainContent.ProgressBar1.MaxValueReached">
+      <Source xsi:type="widgets.brease.ProgressBar.Event" contentRefId="MainContent" widgetRefId="ProgressBar1" event="MaxValueReached" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.MomentaryPushButton.Action" contentRefId="MainContent" widgetRefId="ManualChoiseButton">
+            <Method xsi:type="widgets.brease.MomentaryPushButton.Action.SetVisible" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.MomentaryPushButton.Action" contentRefId="MainContent" widgetRefId="AutoChoiseButton">
+            <Method xsi:type="widgets.brease.MomentaryPushButton.Action.SetVisible" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="MainContent.ManualChoiseButton.Click">
+      <Source xsi:type="widgets.brease.MomentaryPushButton.Event" contentRefId="MainContent" widgetRefId="ManualChoiseButton" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.NavigationButton.Action" contentRefId="MainContent" widgetRefId="ManualNavButton">
+            <Method xsi:type="widgets.brease.NavigationButton.Action.SetVisible" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="MainContent.AutoChoiseButton.Click">
+      <Source xsi:type="widgets.brease.MomentaryPushButton.Event" contentRefId="MainContent" widgetRefId="AutoChoiseButton" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.NavigationButton.Action" contentRefId="MainContent" widgetRefId="AutoNavButton">
+            <Method xsi:type="widgets.brease.NavigationButton.Action.SetVisible" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+  </Bindings>
+</EventBindingSet>
