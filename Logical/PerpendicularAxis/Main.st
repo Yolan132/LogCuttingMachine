@@ -40,7 +40,6 @@ PROGRAM _CYCLIC
 		
 				DONE:
 					gPerpendicularSettings.doReadyToWork := TRUE;
-					MpAxisPerpendicular.Home := FALSE;
 
 			END_CASE;
 			
@@ -78,12 +77,11 @@ PROGRAM _CYCLIC
 				
 				HOMEAGAIN:
 					MpAxisPerpendicular.Home := TRUE;
-					Saw_SimOutputs.aoDriveCutPosition := LREAL_TO_REAL(MpAxisPerpendicular.Position);
 					
-					IF MpAxisPerpendicular.IsHomed THEN
+					IF EDGEPOS(MpAxisPerpendicular.IsHomed) THEN
+						MpAxisPerpendicular.Home := FALSE;
 						WorkManMachine := WAIT;
 					END_IF;
-
 
 			END_CASE;
 			

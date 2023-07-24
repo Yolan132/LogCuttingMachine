@@ -41,7 +41,6 @@ PROGRAM _CYCLIC
 				DONE:
 					gParallelSettings.doReadyToWork := TRUE;
 					
-
 			END_CASE;
 			
 		WORK_M:
@@ -80,6 +79,7 @@ PROGRAM _CYCLIC
 					MpAxisParallel.Home := TRUE;
 					
 					IF EDGEPOS(MpAxisParallel.IsHomed) THEN
+						MpAxisParallel.Home := FALSE;
 						WorkManMachine := WAIT;
 					END_IF;
 

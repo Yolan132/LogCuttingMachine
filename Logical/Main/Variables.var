@@ -2,9 +2,11 @@ VAR
 	InitializeMachine : BOOL;
 	ConveyorSpeed : REAL;
 	PerpendicularStep : REAL;
+	SawOff : BOOL;
 	SMachine : StateMachineTyp;
 	ParallelStep : REAL;
-	RunConveyor : BOOL;
+	ConveyorOff : BOOL;
+	ConveyorOn : BOOL;
 	SawOn : BOOL;
 	SawForward : BOOL;
 	SawLeft : BOOL;

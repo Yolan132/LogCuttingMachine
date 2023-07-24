@@ -35,8 +35,7 @@ PROGRAM _CYCLIC
 			END_IF;
 			
 		MANUAL:
-			gConveyorSettings.diRun := RunConveyor;
-			gConveyorSettings.aiSpeed := ConveyorSpeed;
+			gConveyorSettings.aiSpeed := (ConveyorSpeed / 100);
 	
 			gParallelSettings.diLeft := SawLeft;
 			gParallelSettings.diRight := SawRight;
@@ -45,8 +44,22 @@ PROGRAM _CYCLIC
 			gPerpendicularSettings.diForward := SawForward;
 			gPerpendicularSettings.diBackward := SawBackward;
 			gPerpendicularSettings.aiPerpendicularStep := PerpendicularStep;
-	
-			gSawOn := SawOn;
+			
+			IF SawOn THEN
+				gSawOn := TRUE;
+			END_IF;
+			
+			IF SawOff THEN
+	  			gSawOn := FALSE;
+			END_IF;
+			
+			IF ConveyorOn THEN
+	  			gConveyorSettings.diRun := TRUE;
+			END_IF;
+			
+			IF ConveyorOff THEN
+				gConveyorSettings.diRun := FALSE;
+			END_IF;
 	
 			Saw_SimOutputs.doSawOn := gSawOn;
 			

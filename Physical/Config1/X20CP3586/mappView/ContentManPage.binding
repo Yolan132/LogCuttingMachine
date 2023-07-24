@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="ContentManPage_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Main:SawLeft" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentManPage" widgetRefId="SawLeftButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Main:SawForward" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentManPage" widgetRefId="SawForwardButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Main:SawBackward" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentManPage" widgetRefId="SawBackwardButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gOperatingPanel.diHomePerpendicular" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentManPage" widgetRefId="HomePerpendicularButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gOperatingPanel.diHomeParallel" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentManPage" widgetRefId="HomeParallelButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Main:ConveyorSpeed" attribute="node" />
+<Target xsi:type="brease" contentRefId="ContentManPage" widgetRefId="SetConvoyerVelocity" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::ConveyorAx:MpConveyorPar.Velocity" attribute="node" />
+<Target xsi:type="brease" contentRefId="ContentManPage" widgetRefId="NumericOutput1" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Main:ConveyorOff" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentManPage" widgetRefId="StopConvoyerButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Main:ConveyorOn" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentManPage" widgetRefId="StartConvoyerButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Main:SawOff" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentManPage" widgetRefId="StopSawButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Main:SawOn" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentManPage" widgetRefId="StartSawButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Main:ParallelStep" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentManPage" widgetRefId="NumericInput2" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gParallelSettings.aiParallelStep" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentManPage" widgetRefId="NumericOutput3" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Main:PerpendicularStep" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentManPage" widgetRefId="PerpStepIn" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gPerpendicularSettings.aiPerpendicularStep" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentManPage" widgetRefId="PerpStepOut" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Main:SawRight" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentManPage" widgetRefId="SawRightButton" attribute="value" />
+</Binding>
+</Bindings>
+</BindingsSet>

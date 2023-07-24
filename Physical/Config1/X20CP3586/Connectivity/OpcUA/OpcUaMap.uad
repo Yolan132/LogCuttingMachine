@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<OpcUaSource FileVersion="9" ArVersion="F4.93">
+  <Aliases>
+    <ACLAliases />
+    <EURangeViolationAliases />
+    <EURangesAliases />
+    <EngineeringUnitAliases />
+  </Aliases>
+  <DefaultView>
+    <Module Name="&lt;Default&gt;">
+      <GlobalVariables Name="Global Variables">
+        <Variable Name="gOperatingPanel">
+          <Variable Name="diStart" />
+          <Variable Name="diStop" />
+          <Variable Name="diHomeParallel" />
+          <Variable Name="diHomePerpendicular" />
+        </Variable>
+        <Variable Name="gParallelSettings">
+          <Variable Name="aiParallelStep" />
+        </Variable>
+        <Variable Name="gPerpendicularSettings">
+          <Variable Name="aiPerpendicularStep" />
+        </Variable>
+      </GlobalVariables>
+      <Task Name="Main">
+        <Variable Name="ConveyorSpeed" />
+        <Variable Name="InitializeMachine" />
+        <Variable Name="OperatingMode" />
+        <Variable Name="ParallelStep" />
+        <Variable Name="PerpendicularStep" />
+        <Variable Name="SawBackward" />
+        <Variable Name="SawForward" />
+        <Variable Name="SawLeft" />
+        <Variable Name="SawOn" />
+        <Variable Name="SawRight" />
+        <Variable Name="SMachine" />
+        <Variable Name="ConveyorOff" />
+        <Variable Name="ConveyorOn" />
+        <Variable Name="SawOff" />
+      </Task>
+      <Task Name="ConveyorAx">
+        <Variable Name="MpConveyorPar">
+          <Variable Name="Velocity" />
+        </Variable>
+      </Task>
+    </Module>
+  </DefaultView>
+</OpcUaSource>

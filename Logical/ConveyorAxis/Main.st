@@ -1,5 +1,7 @@
 
 PROGRAM _INIT
+	MpConveyorPar.Velocity := 0;
+	
 	MpAxisConveyor.Enable := TRUE;
 	MpAxisConveyor.MpLink := ADR(gConveyorAxis);
 	MpAxisConveyor.Parameters := ADR(MpConveyorPar);
@@ -58,10 +60,6 @@ PROGRAM _CYCLIC
 						WorkManMachine := UPDATE;
 					END_IF;
 					
-					IF MpAxisConveyor.InVelocity THEN
-						Saw_SimOutputs.aoTreeVelocity := MpAxisConveyor.Velocity;
-					END_IF;
-					
 					IF NOT(gConveyorSettings.diRun) THEN
 						WorkManMachine := WAIT;
 					END_IF;
@@ -80,6 +78,8 @@ PROGRAM _CYCLIC
 	
 	END_CASE;
 
+	Saw_SimOutputs.aoTreeVelocity := MpAxisConveyor.Velocity;
+	
 END_PROGRAM
 
 PROGRAM _EXIT
