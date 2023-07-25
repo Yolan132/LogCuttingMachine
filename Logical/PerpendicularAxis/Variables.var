@@ -1,10 +1,11 @@
-	
 VAR
-	MpPerpendicularPar : MpAxisBasicParType;
-	MpAxisPerpendicular : MpAxisBasic;
+	StopSequence : BOOL;
 	InitMachine : InitProcessTyp;
-	WorkManMachine : WorkManProcessTyp;
 	MenageMachine : MenagementTyp;
+	MpAxisPerpendicular : MpAxisBasic;
+	MpPerpendicularPar : MpAxisBasicParType;
+	SequencerPerpendicular : MpAxisCamSequencer;
+	SequencePar : MpAxisCamSequencerParType;
+	WorkAutoMachine : WorkAutoProcessTyp;
+	WorkManMachine : WorkManProcessTyp;
 END_VAR
-
-

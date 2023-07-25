@@ -1,7 +1,11 @@
 VAR
+	StopSequence : BOOL;
+	SequencePar : MpAxisCamSequencerParType;
 	MpParallelPar : MpAxisBasicParType;
 	MpAxisParallel : MpAxisBasic;
 	InitMachine : InitProcessTyp;
 	WorkManMachine : WorkManProcessTyp;
 	MenageMachine : MenagementTyp;
+	WorkAutoMachine : WorkAutoProcessTyp;
+	SequencerParallel : MpAxisCamSequencer;
 END_VAR

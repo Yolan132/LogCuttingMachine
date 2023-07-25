@@ -5,6 +5,10 @@ TYPE
 		diStop : BOOL;
 		diHomeParallel : BOOL;
 		diHomePerpendicular : BOOL;
+		StartSequence : BOOL;
+		StopSequence : BOOL;
+		SwitchMode : BOOL;
+		RestartSequence : BOOL;
 	END_STRUCT;
 	gConvoyerSettingsType : 	STRUCT 
 		doReadyToWork : BOOL;
@@ -16,11 +20,15 @@ TYPE
 		aiParallelStep : REAL;
 		diRight : BOOL;
 		diLeft : BOOL;
+		AutoReady : BOOL;
+		SwitchReady : BOOL;
 	END_STRUCT;
 	gPerpendicularSettingsType : 	STRUCT 
 		doReadyToWork : BOOL;
 		aiPerpendicularStep : REAL;
 		diForward : BOOL;
 		diBackward : BOOL;
+		AutoReady : BOOL;
+		SwitchReady : BOOL;
 	END_STRUCT;
 END_TYPE

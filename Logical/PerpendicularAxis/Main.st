@@ -9,6 +9,7 @@ PROGRAM _INIT
 	
 	InitMachine := INIT;
 	WorkManMachine := WAIT;
+	WorkAutoMachine := START_POSITION;
 	 
 END_PROGRAM
 
@@ -86,13 +87,64 @@ PROGRAM _CYCLIC
 			END_CASE;
 			
 		WORK_A:
-			
+			CASE WorkAutoMachine OF
+				START_POSITION:
+					MpPerpendicularPar.Position := 0.4;
+					MpAxisPerpendicular.MoveAbsolute := TRUE;
+					
+					IF MpAxisPerpendicular.MoveDone THEN
+						MpAxisPerpendicular.MoveAbsolute := FALSE;
+						WorkAutoMachine := READY;
+						
+					END_IF;
+					
+				READY:
+					gPerpendicularSettings.AutoReady := TRUE;
+					
+					IF gOperatingPanel.StartSequence THEN
+						WorkAutoMachine := CUT_SQ;
+							
+					END_IF;
+				
+				CUT_SQ:
+					SequencerPerpendicular.StartSequence := TRUE;
+					
+					IF SequencerPerpendicular.InCam THEN
+	  					WorkAutoMachine := RETURN_SQ;
+					END_IF;
+					
+				RETURN_SQ:
+					IF gOperatingPanel.StopSequence THEN
+	  					StopSequence := TRUE;
+					END_IF;
+					
+					SequencerPerpendicular.Signal1 := StopSequence;
+					
+					IF StopSequence THEN
+						StopSequence := FALSE;
+						SequencerPerpendicular.StartSequence := FALSE;
+						
+						WorkAutoMachine := SWITCH_MODE;
+					END_IF;
+				
+				SWITCH_MODE:
+					IF gOperatingPanel.RestartSequence THEN
+	  					WorkAutoMachine := START_POSITION;
+					END_IF;
+				
+					IF gOperatingPanel.SwitchMode THEN
+	  					gPerpendicularSettings.SwitchReady := TRUE;
+					END_IF;
+					
+			END_CASE;
 		
 		IDLE:
 
 		
 
 	END_CASE;
+	
+	SequencerPerpendicular(MpLink := ADR(gPerpendicularAxis), Enable := TRUE, Parameters := ADR(SequencePar), MpLinkMaster := ADR(gConveyorAxis));
 	
 	Saw_SimOutputs.aoDriveCutPosition := LREAL_TO_REAL(MpAxisPerpendicular.Position);
 	MpAxisPerpendicular();

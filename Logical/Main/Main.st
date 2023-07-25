@@ -1,6 +1,6 @@
 
 PROGRAM _INIT
-	ConveyorSpeed := 1;
+	ConveyorSpeed := 100;
 	PerpendicularStep := 0.2;
 	ParallelStep := 0.2;
 	
@@ -10,6 +10,8 @@ PROGRAM _INIT
 	SMachine := WAIT_FOR_INIT;
 	
 	gInitProgressBarValue := 0;
+	
+	//MpAxisCamSequencer_0(MpLink := ADR(gAxis_2), Enable := TRUE, Parameters := ADR(SequancePar), MpLinkMaster := ADR(gAxis_1));
 
 END_PROGRAM
 
@@ -86,8 +88,29 @@ PROGRAM _CYCLIC
 	
 			Saw_SimOutputs.doSawOn := gSawOn;
 			
-		AUTO:
-		
+		AUTO:		
+			gOperatingPanel.StartSequence := StartAutoSequence;
+			
+			gConveyorSettings.aiSpeed := (ConveyorSpeed / 100);
+			
+			gSawOn := TRUE;
+			
+			IF ConveyorOn THEN
+				gConveyorSettings.diRun := TRUE;
+			END_IF;
+			
+			Saw_SimOutputs.doSawOn := gSawOn;
+			
+			SwitchMode := gOperatingPanel.SwitchMode;
+			StopAutoSequence := gOperatingPanel.StopSequence;
+			RestartAutoSequence := gOperatingPanel.RestartSequence;
+			
+			IF SwitchMode THEN
+				IF gPerpendicularSettings.SwitchReady AND gParallelSettings.SwitchReady THEN
+					gStateSetter := 1;
+					
+				END_IF;
+			END_IF;
 		
 		ERROR:
 		

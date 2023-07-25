@@ -1,5 +1,13 @@
 
 TYPE
+	WorkAutoProcessTyp : 
+		(
+		START_POSITION := 0,
+		READY := 1,
+		CUT_SQ := 2,
+		RETURN_SQ := 3,
+		SWITCH_MODE := 4
+		);
 	InitProcessTyp : 
 		(
 		INIT := 0,

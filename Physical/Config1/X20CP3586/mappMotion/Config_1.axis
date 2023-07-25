@@ -26,12 +26,12 @@
       <Property ID="AccelerationIsReadOnly" Value="0" />
       <Selector ID="Acceleration">
         <Property ID="AccelerationMax" Value="3.4E38" />
-        <Property ID="Acceleration" Value="3600" />
+        <Property ID="Acceleration" Value="3000" />
       </Selector>
       <Property ID="DecelerationIsReadOnly" Value="0" />
       <Selector ID="Deceleration">
         <Property ID="DecelerationMax" Value="3.4E38" />
-        <Property ID="Deceleration" Value="3600" />
+        <Property ID="Deceleration" Value="3000" />
       </Selector>
     </Selector>
     <Selector ID="Alarms" Value="None" />
@@ -41,7 +41,7 @@
     <Selector ID="BaseType" Value="LinearBounded">
       <Property ID="MeasurementUnit" Value="5067858" />
       <Property ID="MeasurementResolutionIsReadOnly" Value="0" />
-      <Property ID="MeasurementResolution" Value="0.01" />
+      <Property ID="MeasurementResolution" Value="0.001" />
       <Property ID="CountDirectionIsReadOnly" Value="0" />
       <Property ID="CountDirection" Value="Standard" />
     </Selector>
@@ -61,12 +61,12 @@
       <Property ID="AccelerationIsReadOnly" Value="0" />
       <Selector ID="Acceleration">
         <Property ID="AccelerationMax" Value="3.4E38" />
-        <Property ID="Acceleration" Value="50" />
+        <Property ID="Acceleration" Value="3000" />
       </Selector>
       <Property ID="DecelerationIsReadOnly" Value="0" />
       <Selector ID="Deceleration">
         <Property ID="DecelerationMax" Value="3.4E38" />
-        <Property ID="Deceleration" Value="50" />
+        <Property ID="Deceleration" Value="3000" />
       </Selector>
     </Selector>
     <Selector ID="Alarms" Value="None" />
@@ -76,7 +76,7 @@
     <Selector ID="BaseType" Value="LinearBounded">
       <Property ID="MeasurementUnit" Value="5067858" />
       <Property ID="MeasurementResolutionIsReadOnly" Value="0" />
-      <Property ID="MeasurementResolution" Value="0.01" />
+      <Property ID="MeasurementResolution" Value="0.001" />
       <Property ID="CountDirectionIsReadOnly" Value="0" />
       <Property ID="CountDirection" Value="Standard" />
     </Selector>

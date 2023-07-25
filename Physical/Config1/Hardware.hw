@@ -104,6 +104,7 @@
     <Parameter ID="Input" Location="DriveConfiguration/Channel[1]/RealAxis/DigitalInputs/Quickstop" Value="Trigger2" />
     <Parameter ID="SimulationModeOnPLC" Location="DriveConfiguration/Channel[1]/RealAxis/Simulation" Value="SetValueGeneration" />
     <Parameter ID="SimulationModeOnACOPOS" Location="DriveConfiguration/Channel[1]/RealAxis/Simulation" Value="NotUsed" />
+    <Parameter ID="FeatureRef[1]" Location="DriveConfiguration/Channel[1]/RealAxis/AxisFeatures" Value="CamAutomatParallel" />
     <Parameter ID="ExternalEncoderAxis" Location="DriveConfiguration/Channel[1]" Value="NotUsed" />
   </Module>
   <Module Name="8V1010.00-2a" Type="8V1010.00-2" Version="2.2.0.0">
@@ -170,6 +171,7 @@
     <Parameter ID="Input" Location="DriveConfiguration/Channel[1]/RealAxis/DigitalInputs/Quickstop" Value="Trigger2" />
     <Parameter ID="SimulationModeOnPLC" Location="DriveConfiguration/Channel[1]/RealAxis/Simulation" Value="SetValueGeneration" />
     <Parameter ID="SimulationModeOnACOPOS" Location="DriveConfiguration/Channel[1]/RealAxis/Simulation" Value="NotUsed" />
+    <Parameter ID="FeatureRef[1]" Location="DriveConfiguration/Channel[1]/RealAxis/AxisFeatures" Value="CamAutomatPerpendicular" />
     <Parameter ID="ExternalEncoderAxis" Location="DriveConfiguration/Channel[1]" Value="NotUsed" />
   </Module>
   <Module Name="8V1010.00-2b" Type="8V1010.00-2" Version="2.2.0.0">
@@ -228,6 +230,7 @@
     <Parameter ID="Input" Location="DriveConfiguration/Channel[1]/RealAxis/DigitalInputs/Quickstop" Value="Trigger2" />
     <Parameter ID="SimulationModeOnPLC" Location="DriveConfiguration/Channel[1]/RealAxis/Simulation" Value="SetValueGeneration" />
     <Parameter ID="SimulationModeOnACOPOS" Location="DriveConfiguration/Channel[1]/RealAxis/Simulation" Value="NotUsed" />
+    <Parameter ID="FeatureRef[1]" Location="DriveConfiguration/Channel[1]/RealAxis/AxisFeatures" Value="Feature_CamAutomat" />
     <Parameter ID="ExternalEncoderAxis" Location="DriveConfiguration/Channel[1]" Value="NotUsed" />
   </Module>
   <Module Name="X20AI4622" Type="X20AI4622" Version="1.2.0.0">
@@ -270,6 +273,9 @@
     </Connector>
     <Connector Name="IF3">
       <Parameter ID="DNAConfiguration" Value="manual" />
+      <Group ID="Channel1" />
+      <Parameter ID="ChannelID1" Value="McAcpBroadcast" />
+      <Parameter ID="ChannelType1" Value="OCTET[96]" />
     </Connector>
     <Parameter ID="ConfigurationID" Value="FlyingSaw2023_Config1" />
     <Parameter ID="UserPartitionSize" Value="0" />

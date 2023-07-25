@@ -1,4 +1,8 @@
 VAR
+	SwitchMode : BOOL;
+	RestartAutoSequence : BOOL;
+	StopAutoSequence : BOOL;
+	StartAutoSequence : BOOL;
 	diInitializeMachine : BOOL;
 	ConveyorSpeed : REAL;
 	PerpendicularStep : REAL;

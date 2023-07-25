@@ -9,11 +9,15 @@ PROGRAM _INIT
 	
 	InitMachine := INIT;
 	WorkManMachine := WAIT;
+	WorkAutoMachine := START_POSITION;
+	
+	//SequencerParallel(MpLink := ADR(gParallelAxis), Enable := TRUE, Parameters := ADR(SequencePar), MpLinkMaster := ADR(gConveyorAxis));
 	 
 END_PROGRAM
 
 PROGRAM _CYCLIC
 	MenageMachine := gStateSetter;
+	
 	
 	CASE MenageMachine OF
 		WARMUP:
@@ -85,8 +89,59 @@ PROGRAM _CYCLIC
 
 			END_CASE;
 			
-		WORK_A:
-			
+		WORK_A:	
+			CASE WorkAutoMachine OF
+				START_POSITION:
+					MpParallelPar.Position := -0.25;
+					MpAxisParallel.MoveAbsolute := TRUE;
+					
+					IF MpAxisParallel.MoveDone THEN
+						MpAxisParallel.MoveAbsolute := FALSE;
+						WorkAutoMachine := READY;
+						
+					END_IF;
+					
+				READY:
+					gParallelSettings.AutoReady := TRUE;
+					
+					IF gOperatingPanel.StartSequence THEN
+						WorkAutoMachine := CUT_SQ;
+							
+					END_IF;
+				
+				CUT_SQ:
+					SequencerParallel.StartSequence := TRUE;
+					
+					IF SequencerParallel.InCam THEN
+	  					WorkAutoMachine := RETURN_SQ;
+					END_IF;
+					
+				RETURN_SQ:
+					IF gOperatingPanel.StopSequence THEN
+						StopSequence := TRUE;
+					END_IF;
+					
+					SequencerParallel.Signal1 := StopSequence;
+					
+					IF StopSequence THEN
+						StopSequence := FALSE;
+						SequencerParallel.StartSequence := FALSE;
+						
+						WorkAutoMachine := SWITCH_MODE;
+					END_IF;
+				
+				SWITCH_MODE:
+					IF gOperatingPanel.RestartSequence THEN
+						WorkAutoMachine := START_POSITION;
+					END_IF;
+				
+					IF gOperatingPanel.SwitchMode THEN
+						gParallelSettings.SwitchReady := TRUE;
+					END_IF;
+		  
+
+			END_CASE;
+
 		
 		IDLE:
 
@@ -94,6 +149,7 @@ PROGRAM _CYCLIC
 
 	END_CASE;
 	
+	SequencerParallel(MpLink := ADR(gParallelAxis), Enable := TRUE, Parameters := ADR(SequencePar), MpLinkMaster := ADR(gConveyorAxis));
 	
 	Saw_SimOutputs.aoDriveParallelPosition := LREAL_TO_REAL(MpAxisParallel.Position);
 	MpAxisParallel();
