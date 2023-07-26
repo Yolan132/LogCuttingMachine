@@ -2,5 +2,18 @@
 <BindingsSet id="ContentMainPage_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
 
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Main:StartAutoSequence" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentMainPage" widgetRefId="MomentaryPushButton2" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Main:StopAutoSequence" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentMainPage" widgetRefId="MomentaryPushButton1" attribute="value" />
+</Binding>
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Main:SwitchModeToAuto" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentMainPage" widgetRefId="SwitchButton" attribute="value" />
+</Binding>
 </Bindings>
 </BindingsSet>

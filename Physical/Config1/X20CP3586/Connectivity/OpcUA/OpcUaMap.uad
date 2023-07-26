@@ -57,6 +57,10 @@
         <Variable Name="diInitializeMachine" />
         <Variable Name="HMIauto" />
         <Variable AclId="3" AclInherit="2" Name="HMIman" />
+        <Variable Name="StartAutoSequence" />
+        <Variable Name="StopAutoSequence" />
+        <Variable Name="SwitchModeToAuto" />
+        <Variable Name="SwitchModeToMan" />
       </Task>
       <Task Name="ConveyorAx">
         <Variable Name="MpConveyorPar">

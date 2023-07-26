@@ -65,5 +65,9 @@
 <Source xsi:type="opcUa" refId="::Main:SawRight" attribute="value" />
 <Target xsi:type="brease" contentRefId="ContentManPage" widgetRefId="SawRightButton" attribute="value" />
 </Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Main:SwitchModeToMan" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentManPage" widgetRefId="MomentaryPushButton1" attribute="value" />
+</Binding>
 </Bindings>
 </BindingsSet>

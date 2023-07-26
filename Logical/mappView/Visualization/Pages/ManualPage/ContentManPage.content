@@ -9,10 +9,10 @@
     <Widget xsi:type="widgets.brease.NumericInput" id="SetConvoyerVelocity" top="80" left="980" zIndex="5" />
     <Widget xsi:type="widgets.brease.Label" id="ConvoyerVeloText" top="40" left="820" width="140" zIndex="6" text="Convoyer velocity:" />
     <Widget xsi:type="widgets.brease.Label" id="SetConvoyerText" top="80" left="800" width="160" zIndex="7" text="Set convoyer velocity:" />
-    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="StartConvoyerButton" top="250" left="830" zIndex="8" text="StartConvoyer" margin="10px" />
-    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="StopConvoyerButton" top="310" left="830" zIndex="9" text="StopConvoyer" margin="10px" />
-    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="HomeParallelButton" top="430" left="150" width="141" zIndex="10" text="HomeParallel" margin="10px" />
-    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="HomePerpendicularButton" top="491" left="150" width="141" zIndex="11" text="HomePerpedicular" margin="10px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="StartConvoyerButton" top="250" left="830" width="130" zIndex="8" text="StartConvoyer" margin="10px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="StopConvoyerButton" top="310" left="830" width="130" zIndex="9" text="StopConvoyer" margin="10px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="HomeParallelButton" top="290" left="130" width="141" zIndex="10" text="HomeParallel" margin="10px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="HomePerpendicularButton" top="351" left="130" width="141" zIndex="11" text="HomePerpedicular" margin="10px" />
     <Widget xsi:type="widgets.brease.NumericOutput" id="PerpStepOut" top="140" left="240" zIndex="12" />
     <Widget xsi:type="widgets.brease.NumericInput" id="PerpStepIn" top="180" left="240" zIndex="13" />
     <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput3" top="40" left="240" zIndex="14" />
@@ -25,5 +25,6 @@
     <Widget xsi:type="widgets.brease.MomentaryPushButton" id="StopSawButton" top="310" left="510" zIndex="21" text="StopSaw" margin="10px" />
     <Widget xsi:type="widgets.brease.Label" id="Label1" top="80" left="1080" width="20" zIndex="22" text="%" />
     <Widget xsi:type="widgets.brease.Label" id="Label2" top="40" left="1080" width="20" zIndex="23" text="%" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton1" top="520" left="140" width="140" zIndex="24" text="SwitchToManual" />
   </Widgets>
 </Content>

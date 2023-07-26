@@ -9,5 +9,6 @@
     <Widget xsi:type="widgets.brease.MomentaryPushButton" id="AutoChoiseButton" top="380" left="780" zIndex="5" text="Auto" visible="false" />
     <Widget xsi:type="widgets.brease.Label" id="Label1" top="70" left="610" width="90" zIndex="6" text="Logged in as:" margin="10px" />
     <Widget xsi:type="widgets.brease.LoginInfo" id="LoginInfo1" top="70" left="710" zIndex="7" margin="10px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton1" top="260" left="1180" zIndex="8" text="diStart" />
   </Widgets>
 </Content>

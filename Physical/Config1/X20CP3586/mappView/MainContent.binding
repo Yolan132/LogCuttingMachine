@@ -17,5 +17,9 @@
 <Source xsi:type="opcUa" refId="::Main:HMIauto" attribute="value" />
 <Target xsi:type="brease" contentRefId="MainContent" widgetRefId="AutoChoiseButton" attribute="value" />
 </Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gOperatingPanel.diStart" attribute="value" />
+<Target xsi:type="brease" contentRefId="MainContent" widgetRefId="MomentaryPushButton1" attribute="value" />
+</Binding>
 </Bindings>
 </BindingsSet>
