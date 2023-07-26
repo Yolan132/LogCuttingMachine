@@ -136,7 +136,18 @@ PROGRAM _CYCLIC
 					END_IF;
 				
 					IF gOperatingPanel.SwitchMode THEN
-						gParallelSettings.SwitchReady := TRUE;
+						WorkAutoMachine := END_POSITION;
+					END_IF;
+				
+				END_POSITION:
+					IF gPerpendicularSettings.SwitchReady THEN
+						MpParallelPar.Position := -0.25;
+						MpAxisParallel.MoveAbsolute := TRUE;
+					
+						IF MpAxisParallel.MoveDone THEN
+							MpAxisParallel.MoveAbsolute := FALSE;						
+							gParallelSettings.SwitchReady := TRUE;
+						END_IF;	
 					END_IF;
 		  
 

@@ -78,7 +78,12 @@ PROGRAM _CYCLIC
 			MpConveyorPar.Velocity := gConveyorSettings.aiSpeed;
 			
 			IF gConveyorSettings.diRun THEN
-				MpAxisConveyor.MoveVelocity := TRUE;
+	  			MpAxisConveyor.MoveVelocity := TRUE;
+			END_IF;
+			
+			IF gOperatingPanel.StopSequence THEN
+				gConveyorSettings.diRun := FALSE;
+	  			MpAxisConveyor.MoveVelocity := FALSE;
 			END_IF;
 	
 	END_CASE;

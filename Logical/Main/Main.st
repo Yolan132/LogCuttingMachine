@@ -89,17 +89,21 @@ PROGRAM _CYCLIC
 			Saw_SimOutputs.doSawOn := gSawOn;
 			
 		AUTO:		
-			gOperatingPanel.StartSequence := StartAutoSequence;
+			//gOperatingPanel.StartSequence := StartAutoSequence;
 			
 			gConveyorSettings.aiSpeed := (ConveyorSpeed / 100);
 			
 			gSawOn := TRUE;
 			
+			Saw_SimOutputs.doSawOn := gSawOn;
+			
 			IF ConveyorOn THEN
 				gConveyorSettings.diRun := TRUE;
 			END_IF;
 			
-			Saw_SimOutputs.doSawOn := gSawOn;
+			IF ConveyorOff THEN
+				gConveyorSettings.diRun := FALSE;
+			END_IF;
 			
 			SwitchMode := gOperatingPanel.SwitchMode;
 			StopAutoSequence := gOperatingPanel.StopSequence;
@@ -107,8 +111,9 @@ PROGRAM _CYCLIC
 			
 			IF SwitchMode THEN
 				IF gPerpendicularSettings.SwitchReady AND gParallelSettings.SwitchReady THEN
-					gStateSetter := 1;
-					
+					gConveyorSettings.diRun := FALSE;
+					gStateSetter := 2;
+					SMachine := MANUAL;
 				END_IF;
 			END_IF;
 		

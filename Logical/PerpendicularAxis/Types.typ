@@ -6,7 +6,8 @@ TYPE
 		READY := 1,
 		CUT_SQ := 2,
 		RETURN_SQ := 3,
-		SWITCH_MODE := 4
+		SWITCH_MODE := 4,
+		END_POSITION
 		);
 	InitProcessTyp : 
 		(

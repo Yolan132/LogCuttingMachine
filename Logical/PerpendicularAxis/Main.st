@@ -133,9 +133,17 @@ PROGRAM _CYCLIC
 					END_IF;
 				
 					IF gOperatingPanel.SwitchMode THEN
-	  					gPerpendicularSettings.SwitchReady := TRUE;
+	  					WorkAutoMachine := END_POSITION;
 					END_IF;
+				
+				END_POSITION:
+					MpPerpendicularPar.Position := 0.4;
+					MpAxisPerpendicular.MoveAbsolute := TRUE;
 					
+					IF MpAxisPerpendicular.MoveDone THEN
+						MpAxisPerpendicular.MoveAbsolute := FALSE;	
+						gPerpendicularSettings.SwitchReady := TRUE;			
+					END_IF;		
 			END_CASE;
 		
 		IDLE:
