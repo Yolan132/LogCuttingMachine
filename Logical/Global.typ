@@ -7,7 +7,8 @@ TYPE
 		diHomePerpendicular : BOOL;
 		StartSequence : BOOL;
 		StopSequence : BOOL;
-		SwitchMode : BOOL;
+		SwitchModeToAuto : USINT;
+		SwitchModeToMan : BOOL;
 		RestartSequence : BOOL;
 	END_STRUCT;
 	gConvoyerSettingsType : 	STRUCT 
@@ -21,7 +22,8 @@ TYPE
 		diRight : BOOL;
 		diLeft : BOOL;
 		AutoReady : BOOL;
-		SwitchReady : BOOL;
+		ReadyToChange : BOOL;
+		AfterSwitchFlag : BOOL;
 	END_STRUCT;
 	gPerpendicularSettingsType : 	STRUCT 
 		doReadyToWork : BOOL;
@@ -29,6 +31,7 @@ TYPE
 		diForward : BOOL;
 		diBackward : BOOL;
 		AutoReady : BOOL;
-		SwitchReady : BOOL;
+		ReadyToChange : BOOL;
+		AfterSwitchFlag : BOOL;
 	END_STRUCT;
 END_TYPE

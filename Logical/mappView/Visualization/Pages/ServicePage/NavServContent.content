@@ -3,7 +3,7 @@
   <Widgets>
     <Widget xsi:type="widgets.brease.NavigationBar" id="NavigationBar1" top="0" left="0" width="200" height="360" zIndex="0" childPositioning="relative">
       <Widgets>
-        <Widget xsi:type="widgets.brease.NavigationButton" id="MainPageButton" top="0" left="0" width="180" height="60" zIndex="0" pageId="MainPage" text="MainPage" margin="10px" />
+        <Widget xsi:type="widgets.brease.NavigationButton" id="MainPageButton" top="0" left="0" width="180" height="60" zIndex="0" pageId="MainPage" text="AutoControl" margin="10px" />
         <Widget xsi:type="widgets.brease.NavigationButton" id="ManualButton" top="0" left="0" width="180" height="60" zIndex="1" pageId="ManualPage" text="ManualControl" margin="10px" />
         <Widget xsi:type="widgets.brease.NavigationButton" id="serviceButton" top="0" left="0" width="180" height="60" zIndex="2" pageId="ServicePage" text="Service" margin="10px" />
         <Widget xsi:type="widgets.brease.NavigationButton" id="SwitchUserButton" top="0" left="0" width="180" height="60" zIndex="3" pageId="SwitchUserPage" text="Switch User" margin="10px" />

@@ -1,22 +1,23 @@
 VAR
-	SwitchMode : BOOL;
+	HMIman : BOOL;
+	SwitchModeToMan : BOOL;
 	RestartAutoSequence : BOOL;
 	StopAutoSequence : BOOL;
 	StartAutoSequence : BOOL;
 	diInitializeMachine : BOOL;
-	ConveyorSpeed : REAL;
-	PerpendicularStep : REAL;
+	SawRight : BOOL;
 	SawOff : BOOL;
-	SMachine : StateMachineTyp;
-	ParallelStep : REAL;
+	SawBackward : BOOL;
+	HMIauto : BOOL;
 	ConveyorOff : BOOL;
 	ConveyorOn : BOOL;
 	SawOn : BOOL;
 	SawForward : BOOL;
 	SawLeft : BOOL;
-	SawBackward : BOOL;
-	SawRight : BOOL;
 	OperatingMode : INT;
-	HMIauto : BOOL;
-	HMIman : BOOL;
+	ParallelStep : REAL;
+	PerpendicularStep : REAL;
+	ConveyorSpeed : REAL;
+	SMachine : StateMachineTyp;
+	SwitchModeToAuto : BOOL;
 END_VAR

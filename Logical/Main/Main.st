@@ -11,8 +11,8 @@ PROGRAM _INIT
 	
 	gInitProgressBarValue := 0;
 	
-	//MpAxisCamSequencer_0(MpLink := ADR(gAxis_2), Enable := TRUE, Parameters := ADR(SequancePar), MpLinkMaster := ADR(gAxis_1));
-
+	Saw_SimOutputs.doSawOn := gSawOn;
+	
 END_PROGRAM
 
 PROGRAM _CYCLIC
@@ -70,6 +70,8 @@ PROGRAM _CYCLIC
 			gPerpendicularSettings.diBackward := SawBackward;
 			gPerpendicularSettings.aiPerpendicularStep := PerpendicularStep;
 			
+			gOperatingPanel.SwitchModeToAuto := SwitchModeToAuto;
+			
 			IF SawOn THEN
 				gSawOn := TRUE;
 			END_IF;
@@ -86,33 +88,51 @@ PROGRAM _CYCLIC
 				gConveyorSettings.diRun := FALSE;
 			END_IF;
 	
-			Saw_SimOutputs.doSawOn := gSawOn;
-			
-		AUTO:		
-			//gOperatingPanel.StartSequence := StartAutoSequence;
-			
-			gConveyorSettings.aiSpeed := (ConveyorSpeed / 100);
-			
-			gSawOn := TRUE;
-			
-			Saw_SimOutputs.doSawOn := gSawOn;
-			
-			IF ConveyorOn THEN
-				gConveyorSettings.diRun := TRUE;
+			IF gPerpendicularSettings.ReadyToChange AND gParallelSettings.ReadyToChange THEN
+				IF SwitchModeToAuto THEN
+					OperatingMode := 2;
+					gStateSetter := 3;
+					
+					gParallelSettings.ReadyToChange := FALSE;
+					gParallelSettings.AfterSwitchFlag := TRUE;
+					gPerpendicularSettings.ReadyToChange := FALSE;
+					gPerpendicularSettings.AfterSwitchFlag := TRUE;
+					SwitchModeToAuto := FALSE;
+					
+					SMachine := AUTO;
+				END_IF;
 			END_IF;
 			
-			IF ConveyorOff THEN
-				gConveyorSettings.diRun := FALSE;
+		AUTO:				
+			gConveyorSettings.aiSpeed := (ConveyorSpeed / 100);			
+			
+			gOperatingPanel.StartSequence := StartAutoSequence;
+			gOperatingPanel.SwitchModeToMan := SwitchModeToMan;
+			gOperatingPanel.StopSequence := StopAutoSequence;
+			gOperatingPanel.RestartSequence := RestartAutoSequence;
+			
+			IF StartAutoSequence THEN
+	  			gConveyorSettings.diRun := TRUE;
 			END_IF;
 			
-			SwitchMode := gOperatingPanel.SwitchMode;
-			StopAutoSequence := gOperatingPanel.StopSequence;
-			RestartAutoSequence := gOperatingPanel.RestartSequence;
+			IF StopAutoSequence THEN
+	  			gConveyorSettings.diRun := FALSE;
+			END_IF;
 			
-			IF SwitchMode THEN
-				IF gPerpendicularSettings.SwitchReady AND gParallelSettings.SwitchReady THEN
-					gConveyorSettings.diRun := FALSE;
+			IF gParallelSettings.ReadyToChange THEN
+				IF StartAutoSequence THEN
+					gParallelSettings.ReadyToChange := FALSE;
+					gPerpendicularSettings.ReadyToChange := FALSE;
+				END_IF;
+				
+				IF SwitchModeToMan THEN
+					OperatingMode := 1;
 					gStateSetter := 2;
+					
+					gParallelSettings.ReadyToChange := FALSE;
+					gPerpendicularSettings.ReadyToChange := FALSE;
+					SwitchModeToMan := FALSE;
+					
 					SMachine := MANUAL;
 				END_IF;
 			END_IF;
@@ -127,6 +147,7 @@ PROGRAM _CYCLIC
 
 	END_CASE;
 	
+Saw_SimOutputs.doSawOn := gSawOn;
 	
 END_PROGRAM
 

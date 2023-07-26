@@ -51,6 +51,7 @@ PROGRAM _CYCLIC
 			CASE WorkManMachine OF
 				WAIT:
 					MpAxisParallel.MoveAbsolute := FALSE;
+					gParallelSettings.ReadyToChange := TRUE;
 					
 					IF EDGEPOS(gParallelSettings.diLeft) AND NOT(Saw_SimInputs.diDriveParallelAtFront) THEN
 						MpParallelPar.Position := MpAxisParallel.Position + gParallelSettings.aiParallelStep;
@@ -74,6 +75,7 @@ PROGRAM _CYCLIC
 					
 				RUN:
 					MpAxisParallel.MoveAbsolute := TRUE;
+					gParallelSettings.ReadyToChange := FALSE;
 					
 					IF MpAxisParallel.MoveDone THEN
 						WorkManMachine := WAIT;
@@ -81,6 +83,7 @@ PROGRAM _CYCLIC
 				
 				HOMEAGAIN:
 					MpAxisParallel.Home := TRUE;
+					gParallelSettings.ReadyToChange := FALSE;
 					
 					IF EDGEPOS(MpAxisParallel.IsHomed) THEN
 						MpAxisParallel.Home := FALSE;
@@ -91,7 +94,7 @@ PROGRAM _CYCLIC
 			
 		WORK_A:	
 			CASE WorkAutoMachine OF
-				START_POSITION:
+				START_POSITION:				
 					MpParallelPar.Position := -0.25;
 					MpAxisParallel.MoveAbsolute := TRUE;
 					
@@ -102,6 +105,11 @@ PROGRAM _CYCLIC
 					END_IF;
 					
 				READY:
+					IF gParallelSettings.AfterSwitchFlag THEN
+						gParallelSettings.AfterSwitchFlag := FALSE;
+						WorkAutoMachine := START_POSITION;
+					END_IF;
+					
 					gParallelSettings.AutoReady := TRUE;
 					
 					IF gOperatingPanel.StartSequence THEN
@@ -131,25 +139,17 @@ PROGRAM _CYCLIC
 					END_IF;
 				
 				SWITCH_MODE:
-					IF gOperatingPanel.RestartSequence THEN
-						WorkAutoMachine := START_POSITION;
-					END_IF;
-				
-					IF gOperatingPanel.SwitchMode THEN
-						WorkAutoMachine := END_POSITION;
-					END_IF;
-				
-				END_POSITION:
-					IF gPerpendicularSettings.SwitchReady THEN
+					IF gPerpendicularSettings.ReadyToChange THEN
 						MpParallelPar.Position := -0.25;
 						MpAxisParallel.MoveAbsolute := TRUE;
 					
 						IF MpAxisParallel.MoveDone THEN
-							MpAxisParallel.MoveAbsolute := FALSE;						
-							gParallelSettings.SwitchReady := TRUE;
+							MpAxisParallel.MoveAbsolute := FALSE;										
+							gParallelSettings.ReadyToChange := TRUE;
+							
+							WorkAutoMachine := READY;
 						END_IF;	
-					END_IF;
-		  
+					END_IF;		  
 
 			END_CASE;
 

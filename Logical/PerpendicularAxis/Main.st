@@ -48,6 +48,7 @@ PROGRAM _CYCLIC
 			CASE WorkManMachine OF
 				WAIT:
 					MpAxisPerpendicular.MoveAbsolute := FALSE;
+					gPerpendicularSettings.ReadyToChange := TRUE;
 					
 					IF EDGEPOS(gPerpendicularSettings.diForward) AND NOT(Saw_SimInputs.diDriveCutAtFront) THEN
 						MpPerpendicularPar.Position := MpAxisPerpendicular.Position + gPerpendicularSettings.aiPerpendicularStep;
@@ -71,6 +72,7 @@ PROGRAM _CYCLIC
 					
 				RUN:
 					MpAxisPerpendicular.MoveAbsolute := TRUE;
+					gPerpendicularSettings.ReadyToChange := FALSE;
 					
 					IF MpAxisPerpendicular.MoveDone THEN
 						WorkManMachine := WAIT;
@@ -78,6 +80,7 @@ PROGRAM _CYCLIC
 				
 				HOMEAGAIN:
 					MpAxisPerpendicular.Home := TRUE;
+					gPerpendicularSettings.ReadyToChange := FALSE;
 					
 					IF EDGEPOS(MpAxisPerpendicular.IsHomed) THEN
 						MpAxisPerpendicular.Home := FALSE;
@@ -88,7 +91,7 @@ PROGRAM _CYCLIC
 			
 		WORK_A:
 			CASE WorkAutoMachine OF
-				START_POSITION:
+				START_POSITION:			
 					MpPerpendicularPar.Position := 0.4;
 					MpAxisPerpendicular.MoveAbsolute := TRUE;
 					
@@ -99,9 +102,15 @@ PROGRAM _CYCLIC
 					END_IF;
 					
 				READY:
+					IF gPerpendicularSettings.AfterSwitchFlag THEN
+						gPerpendicularSettings.AfterSwitchFlag := FALSE;
+						WorkAutoMachine := START_POSITION;
+					END_IF;
+					
 					gPerpendicularSettings.AutoReady := TRUE;
 					
 					IF gOperatingPanel.StartSequence THEN
+						gSawOn := TRUE;
 						WorkAutoMachine := CUT_SQ;
 							
 					END_IF;
@@ -114,6 +123,8 @@ PROGRAM _CYCLIC
 					END_IF;
 					
 				RETURN_SQ:
+					SequencerPerpendicular.Continue := FALSE;
+					
 					IF gOperatingPanel.StopSequence THEN
 	  					StopSequence := TRUE;
 					END_IF;
@@ -128,22 +139,17 @@ PROGRAM _CYCLIC
 					END_IF;
 				
 				SWITCH_MODE:
-					IF gOperatingPanel.RestartSequence THEN
-	  					WorkAutoMachine := START_POSITION;
-					END_IF;
-				
-					IF gOperatingPanel.SwitchMode THEN
-	  					WorkAutoMachine := END_POSITION;
-					END_IF;
-				
-				END_POSITION:
 					MpPerpendicularPar.Position := 0.4;
 					MpAxisPerpendicular.MoveAbsolute := TRUE;
 					
 					IF MpAxisPerpendicular.MoveDone THEN
-						MpAxisPerpendicular.MoveAbsolute := FALSE;	
-						gPerpendicularSettings.SwitchReady := TRUE;			
-					END_IF;		
+						MpAxisPerpendicular.MoveAbsolute := FALSE;
+						gPerpendicularSettings.ReadyToChange := TRUE;
+						gSawOn := FALSE;
+						
+						WorkAutoMachine := READY;
+					END_IF;	
+				
 			END_CASE;
 		
 		IDLE:
