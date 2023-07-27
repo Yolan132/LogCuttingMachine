@@ -6,7 +6,7 @@
       <EventHandler>
         <Action>
           <Target xsi:type="widgets.brease.NavigationButton.Action" contentRefId="LoginMainCntent" widgetRefId="InitNavButton">
-            <Method xsi:type="widgets.brease.NavigationButton.Action.SetVisible" value="true" />
+            <Method xsi:type="widgets.brease.NavigationButton.Action.SetEnable" value="true" />
           </Target>
         </Action>
       </EventHandler>

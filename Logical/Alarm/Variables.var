@@ -1,0 +1,5 @@
+VAR
+	MpAlarmXListUI_0 : MpAlarmXListUI;
+	MpAlarmXCore_0 : MpAlarmXCore;
+	MpAlarmXHistory_0 : MpAlarmXHistory;
+END_VAR

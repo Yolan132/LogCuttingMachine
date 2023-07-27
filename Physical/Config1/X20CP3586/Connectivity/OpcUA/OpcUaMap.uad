@@ -39,6 +39,7 @@
           <Variable Name="aiPerpendicularStep" />
         </Variable>
         <Variable Name="gInitProgressBarValue" />
+        <Variable Name="gResetErrors" />
       </GlobalVariables>
       <Task Name="Main">
         <Variable AclId="3" AclInherit="2" Name="ConveyorSpeed" />
@@ -61,10 +62,19 @@
         <Variable Name="StopAutoSequence" />
         <Variable Name="SwitchModeToAuto" />
         <Variable Name="SwitchModeToMan" />
+        <Variable Name="ResetErrors" />
       </Task>
       <Task Name="ConveyorAx">
         <Variable Name="MpConveyorPar">
           <Variable Name="Velocity" />
+        </Variable>
+      </Task>
+      <Task Name="Alarm">
+        <Variable Name="MpAlarmXCore_0" RecursiveEnable="2" />
+      </Task>
+      <Task Name="ParallelAx">
+        <Variable Name="MpAxisParallel">
+          <Variable Name="ErrorReset" />
         </Variable>
       </Task>
     </Module>

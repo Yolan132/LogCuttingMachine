@@ -1,4 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Content id="MainServContent" height="660" width="1160" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2">
-  <Widgets></Widgets>
+<Content id="MainServContent" height="660" width="1160" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.TabControl" id="TabControl1" top="40" left="20" width="1120" height="560" zIndex="0">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.TabItem" id="TabItem1" left="0" zIndex="0" text="Alarms">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.AlarmList" id="AlarmList1" top="30" left="160" width="800" height="360" zIndex="0" itemsPerPage="5">
+              <Widgets>
+                <Widget xsi:type="widgets.brease.AlarmListItem" id="AlarmListItem1" zIndex="0" columnType="severity" text="Error No." />
+                <Widget xsi:type="widgets.brease.AlarmListItem" id="AlarmListItem2" zIndex="1" text="Message" />
+                <Widget xsi:type="widgets.brease.AlarmListItem" id="AlarmListItem3" zIndex="2" columnType="code" text="Error code" />
+                <Widget xsi:type="widgets.brease.AlarmListItem" id="AlarmListItem4" zIndex="3" columnType="timestamp" text="Time of error" />
+              </Widgets>
+            </Widget>
+            <Widget xsi:type="widgets.brease.MomentaryPushButton" id="acknowledgeButton" top="430" left="680" width="200" height="50" zIndex="1" text="Error acknowledge" />
+            <Widget xsi:type="widgets.brease.MomentaryPushButton" id="ResetButton" top="430" left="240" width="200" height="50" zIndex="2" text="Error reset" />
+          </Widgets>
+        </Widget>
+        <Widget xsi:type="widgets.brease.TabItem" id="TabItem2" left="0" zIndex="1" text="History">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.AlarmHistory" id="AlarmHistory1" top="30" left="60" width="1000" height="470" zIndex="0" itemsPerPage="57">
+              <Widgets>
+                <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlarmHistoryItem1" zIndex="0" columnType="instanceId" text="Error No." />
+                <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlarmHistoryItem2" zIndex="1" text="Message" />
+                <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlarmHistoryItem3" zIndex="2" columnType="code" text="Error code" />
+                <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlarmHistoryItem4" zIndex="3" columnType="timestamp" text="Time of error" />
+                <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlarmHistoryItem5" zIndex="4" columnType="old state" text="State" />
+              </Widgets>
+            </Widget>
+          </Widgets>
+        </Widget>
+      </Widgets>
+    </Widget>
+  </Widgets>
 </Content>

@@ -80,6 +80,10 @@ PROGRAM _CYCLIC
 					IF MpAxisParallel.MoveDone THEN
 						WorkManMachine := WAIT;
 					END_IF;
+					
+					IF EDGENEG(MpAxisParallel.Error) THEN
+	  					WorkManMachine := WAIT;
+					END_IF;
 				
 				HOMEAGAIN:
 					MpAxisParallel.Home := TRUE;
@@ -161,6 +165,8 @@ PROGRAM _CYCLIC
 	END_CASE;
 	
 	SequencerParallel(MpLink := ADR(gParallelAxis), Enable := TRUE, Parameters := ADR(SequencePar), MpLinkMaster := ADR(gConveyorAxis));
+	
+	MpAxisParallel.ErrorReset := gResetErrors;
 	
 	Saw_SimOutputs.aoDriveParallelPosition := LREAL_TO_REAL(MpAxisParallel.Position);
 	MpAxisParallel();

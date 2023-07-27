@@ -1,4 +1,5 @@
 VAR
+	ResetErrors : BOOL;
 	HMIman : BOOL;
 	SwitchModeToMan : BOOL;
 	RestartAutoSequence : BOOL;

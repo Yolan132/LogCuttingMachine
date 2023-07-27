@@ -90,6 +90,8 @@ PROGRAM _CYCLIC
 
 	Saw_SimOutputs.aoTreeVelocity := MpAxisConveyor.Velocity;
 	
+	MpAxisConveyor.ErrorReset := gResetErrors;
+	
 END_PROGRAM
 
 PROGRAM _EXIT

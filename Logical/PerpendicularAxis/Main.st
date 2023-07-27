@@ -77,6 +77,10 @@ PROGRAM _CYCLIC
 					IF MpAxisPerpendicular.MoveDone THEN
 						WorkManMachine := WAIT;
 					END_IF;
+					
+					IF EDGENEG(MpAxisPerpendicular.Error) THEN
+						WorkManMachine := WAIT;
+					END_IF;
 				
 				HOMEAGAIN:
 					MpAxisPerpendicular.Home := TRUE;
@@ -159,6 +163,8 @@ PROGRAM _CYCLIC
 	END_CASE;
 	
 	SequencerPerpendicular(MpLink := ADR(gPerpendicularAxis), Enable := TRUE, Parameters := ADR(SequencePar), MpLinkMaster := ADR(gConveyorAxis));
+	
+	MpAxisPerpendicular.ErrorReset := gResetErrors;
 	
 	Saw_SimOutputs.aoDriveCutPosition := LREAL_TO_REAL(MpAxisPerpendicular.Position);
 	MpAxisPerpendicular();

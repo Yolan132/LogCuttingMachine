@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="gAlarmXCore" Type="mpalarmxcore">
+    <Group ID="mapp.AlarmX.Core.Configuration">
+      <Group ID="[0]">
+        <Property ID="Name" Value="SpeedToHigh" />
+        <Property ID="Message" Value="Convoyer speed set to high" />
+        <Property ID="Code" Value="3101" />
+        <Property ID="Severity" Value="30" />
+        <Selector ID="Behavior" Value="LevelMonitoring">
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="::Main:ConveyorSpeed" />
+            <Selector ID="HighLimitEnable" Value="Static">
+              <Property ID="Limit" Value="100" />
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group ID="[1]">
+        <Property ID="Name" Value="Wrong parallel step" />
+        <Property ID="Message" Value="Wrong parallel step" />
+        <Property ID="Code" Value="2101" />
+        <Property ID="Severity" Value="20" />
+        <Selector ID="Behavior" Value="LevelMonitoring">
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="::Main:ParallelStep" />
+            <Selector ID="LowLimitEnable" Value="Static">
+              <Property ID="Limit" Value="0" />
+            </Selector>
+            <Selector ID="HighLimitEnable" Value="Static">
+              <Property ID="Limit" Value="1.6" />
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group ID="[2]">
+        <Property ID="Name" Value="Wrong perpendicular step" />
+        <Property ID="Message" Value="Wrong perpendicular step" />
+        <Property ID="Code" Value="1101" />
+        <Property ID="Severity" Value="20" />
+        <Selector ID="Behavior" Value="LevelMonitoring">
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="::Main:PerpendicularStep" />
+            <Selector ID="LowLimitEnable" Value="Static" />
+            <Selector ID="HighLimitEnable" Value="Static">
+              <Property ID="Limit" Value="2" />
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+    </Group>
+  </Element>
+</Configuration>

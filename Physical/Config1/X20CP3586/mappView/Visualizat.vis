@@ -13,11 +13,16 @@
   <BindingsSets>
     <BindingsSet refId="ContentMainPage_binding" />
     <BindingsSet refId="ContentManPage_binding" />
-    <BindingsSet refId="MainContent_binding" />
+    <BindingsSet refId="InfoManPage_binding" />
+    <BindingsSet refId="MainServContent_binding" />
+    <BindingsSet refId="SwitchUserInfoContent_binding" />
+    <BindingsSet refId="InfoMainPage_binding" />
+    <BindingsSet refId="InitMainContent_binding" />
   </BindingsSets>
   <EventBindingsSets>
-    <EventBindingsSet refId="MainContent_eventbinding" />
     <EventBindingsSet refId="LoginMainCntent_eventbinding" />
+    <EventBindingsSet refId="MainServContent_eventbinding" />
+    <EventBindingsSet refId="InitMainContent_eventbinding" />
   </EventBindingsSets>
   <Dialogs />
   <Contents>
@@ -33,12 +38,15 @@
     <Content refId="NavServContent" />
     <Content refId="InfoServContent" />
     <Content refId="MainServContent" />
-    <Content refId="MainContent" />
     <Content refId="LoginMainCntent" />
     <Content refId="SwitchUserMainContent" />
     <Content refId="SwitchUserNavContent" />
     <Content refId="SwitchUserHeadContent" />
     <Content refId="SwitchUserInfoContent" />
+    <Content refId="InitMainContent" />
+    <Content refId="InitHeadContent" />
+    <Content refId="InitInfoContent" />
+    <Content refId="InitNavContent" />
   </Contents>
   <SnippetsSets />
   <VariablesSets />

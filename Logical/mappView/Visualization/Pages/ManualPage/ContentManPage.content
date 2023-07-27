@@ -24,7 +24,7 @@
     <Widget xsi:type="widgets.brease.MomentaryPushButton" id="StartSawButton" top="250" left="510" zIndex="20" text="StartSaw" margin="10px" />
     <Widget xsi:type="widgets.brease.MomentaryPushButton" id="StopSawButton" top="310" left="510" zIndex="21" text="StopSaw" margin="10px" />
     <Widget xsi:type="widgets.brease.Label" id="Label1" top="80" left="1080" width="20" zIndex="22" text="%" />
-    <Widget xsi:type="widgets.brease.Label" id="Label2" top="40" left="1080" width="20" zIndex="23" text="%" />
+    <Widget xsi:type="widgets.brease.Label" id="Label2" top="40" left="1080" width="40" zIndex="23" text="m/s" />
     <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton1" top="520" left="140" width="140" zIndex="24" text="SwitchToManual" />
   </Widgets>
 </Content>

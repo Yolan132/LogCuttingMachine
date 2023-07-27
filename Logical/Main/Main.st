@@ -111,6 +111,8 @@ PROGRAM _CYCLIC
 			gOperatingPanel.StopSequence := StopAutoSequence;
 			gOperatingPanel.RestartSequence := RestartAutoSequence;
 			
+			ResetErrors := gResetErrors;
+			
 			IF StartAutoSequence THEN
 	  			gConveyorSettings.diRun := TRUE;
 			END_IF;
@@ -147,7 +149,9 @@ PROGRAM _CYCLIC
 
 	END_CASE;
 	
-Saw_SimOutputs.doSawOn := gSawOn;
+	Saw_SimOutputs.doSawOn := gSawOn;
+	
+	gResetErrors := ResetErrors;
 	
 END_PROGRAM
 

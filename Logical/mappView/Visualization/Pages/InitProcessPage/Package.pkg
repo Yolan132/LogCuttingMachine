@@ -3,6 +3,9 @@
 <Package SubType="PagePackage" PackageType="PagePackage" xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
     <Object Type="File" Description="Page description">InitProcessPage.page</Object>
-    <Object Type="File">MainContent.content</Object>
+    <Object Type="File">InitMainContent.content</Object>
+    <Object Type="File">InitHeadContent.content</Object>
+    <Object Type="File">InitInfoContent.content</Object>
+    <Object Type="File">InitNavContent.content</Object>
   </Objects>
 </Package>

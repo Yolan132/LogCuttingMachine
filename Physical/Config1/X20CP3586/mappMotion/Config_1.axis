@@ -34,7 +34,90 @@
         <Property ID="Deceleration" Value="3000" />
       </Selector>
     </Selector>
-    <Selector ID="Alarms" Value="None" />
+    <Selector ID="Alarms" Value="MpAlarmX">
+      <Group ID="mapp.AlarmX.Core.Configuration">
+        <Group ID="[0]">
+          <Property ID="Message" Value="System problem on Perpendicular axis" />
+          <Property ID="Code" Value="1001" />
+          <Property ID="Severity" Value="50" />
+        </Group>
+        <Group ID="[1]">
+          <Property ID="Message" Value="Initialization problem on Perpendicular axis" />
+          <Property ID="Code" Value="1002" />
+          <Property ID="Severity" Value="10" />
+        </Group>
+        <Group ID="[2]">
+          <Property ID="Message" Value="Parameter problem on Perpendicular axis" />
+          <Property ID="Code" Value="1003" />
+          <Property ID="Severity" Value="10" />
+        </Group>
+        <Group ID="[3]">
+          <Property ID="Message" Value="Operation problem on Perpendicular axis" />
+          <Property ID="Code" Value="1004" />
+          <Property ID="Severity" Value="30" />
+        </Group>
+        <Group ID="[4]">
+          <Property ID="Message" Value="Data access problem on Perpendicular axis" />
+          <Property ID="Code" Value="1005" />
+          <Property ID="Severity" Value="10" />
+        </Group>
+        <Group ID="[5]">
+          <Property ID="Message" Value="Syntax error on Perpendicular axis" />
+          <Property ID="Code" Value="1006" />
+          <Property ID="Severity" Value="10" />
+        </Group>
+        <Group ID="[9]">
+          <Property ID="Message" Value="Network problem on Perpendicular axis" />
+          <Property ID="Code" Value="1007" />
+          <Property ID="Severity" Value="10" />
+        </Group>
+        <Group ID="[10]">
+          <Property ID="Message" Value="Encoder problem on Perpendicular axis" />
+          <Property ID="Code" Value="1008" />
+          <Property ID="Severity" Value="30" />
+        </Group>
+        <Group ID="[11]">
+          <Property ID="Message" Value="Drive problem on Perpendicular axis" />
+          <Property ID="Code" Value="1009" />
+          <Property ID="Severity" Value="30" />
+        </Group>
+        <Group ID="[12]">
+          <Property ID="Message" Value="IO problem on Perpendicular axis" />
+          <Property ID="Code" Value="1010" />
+          <Property ID="Severity" Value="20" />
+        </Group>
+        <Group ID="[13]">
+          <Property ID="Message" Value="Supply problem on Perpendicular axis" />
+          <Property ID="Code" Value="1011" />
+          <Property ID="Severity" Value="10" />
+        </Group>
+        <Group ID="[14]">
+          <Property ID="Message" Value="Motor problem on Perpendicular axis" />
+          <Property ID="Code" Value="1012" />
+          <Property ID="Severity" Value="50" />
+        </Group>
+        <Group ID="[15]">
+          <Property ID="Message" Value="Holding brake problem on Perpendicular axis" />
+          <Property ID="Code" Value="1013" />
+          <Property ID="Severity" Value="50" />
+        </Group>
+        <Group ID="[19]">
+          <Property ID="Message" Value="Movement error limit reached on Perpendicular axis on Perpendicular axis" />
+          <Property ID="Code" Value="1014" />
+          <Property ID="Severity" Value="40" />
+        </Group>
+        <Group ID="[20]">
+          <Property ID="Message" Value="HW or SW movement limits reached on Perpendicular axis on Perpendicular axis" />
+          <Property ID="Code" Value="1015" />
+          <Property ID="Severity" Value="40" />
+        </Group>
+        <Group ID="[21]">
+          <Property ID="Message" Value="Enable input low on Perpendicular axis" />
+          <Property ID="Code" Value="1016" />
+          <Property ID="Severity" Value="10" />
+        </Group>
+      </Group>
+    </Selector>
   </Element>
   <Element ID="gParallelAxis" Type="axis">
     <Property ID="BaseTypeIsReadOnly" Value="0" />
@@ -69,7 +152,89 @@
         <Property ID="Deceleration" Value="3000" />
       </Selector>
     </Selector>
-    <Selector ID="Alarms" Value="None" />
+    <Selector ID="Alarms" Value="MpAlarmX">
+      <Group ID="mapp.AlarmX.Core.Configuration">
+        <Group ID="[0]">
+          <Property ID="Code" Value="2001" />
+          <Property ID="Severity" Value="50" />
+        </Group>
+        <Group ID="[1]">
+          <Property ID="Message" Value="Initialization problem on parallel axis" />
+          <Property ID="Code" Value="2002" />
+          <Property ID="Severity" Value="10" />
+        </Group>
+        <Group ID="[2]">
+          <Property ID="Message" Value="Parameter problem on parallel axis" />
+          <Property ID="Code" Value="2003" />
+          <Property ID="Severity" Value="10" />
+        </Group>
+        <Group ID="[3]">
+          <Property ID="Message" Value="Operation problem on parallel axis" />
+          <Property ID="Code" Value="2004" />
+          <Property ID="Severity" Value="30" />
+        </Group>
+        <Group ID="[4]">
+          <Property ID="Message" Value="Data access problem on parallel axis" />
+          <Property ID="Code" Value="2005" />
+          <Property ID="Severity" Value="10" />
+        </Group>
+        <Group ID="[5]">
+          <Property ID="Message" Value="Syntax error on parallel axis" />
+          <Property ID="Code" Value="2006" />
+          <Property ID="Severity" Value="10" />
+        </Group>
+        <Group ID="[9]">
+          <Property ID="Message" Value="Network problem on parallel axis" />
+          <Property ID="Code" Value="2007" />
+          <Property ID="Severity" Value="10" />
+        </Group>
+        <Group ID="[10]">
+          <Property ID="Message" Value="Encoder problem on parallel axis" />
+          <Property ID="Code" Value="2008" />
+          <Property ID="Severity" Value="30" />
+        </Group>
+        <Group ID="[11]">
+          <Property ID="Message" Value=" on parallel axis" />
+          <Property ID="Code" Value="2009" />
+          <Property ID="Severity" Value="20" />
+        </Group>
+        <Group ID="[12]">
+          <Property ID="Message" Value="IO problem on parallel axis" />
+          <Property ID="Code" Value="2010" />
+          <Property ID="Severity" Value="10" />
+        </Group>
+        <Group ID="[13]">
+          <Property ID="Message" Value="Supply problem on parallel axis" />
+          <Property ID="Code" Value="2011" />
+          <Property ID="Severity" Value="10" />
+        </Group>
+        <Group ID="[14]">
+          <Property ID="Message" Value="Motor problem on parallel axis" />
+          <Property ID="Code" Value="2012" />
+          <Property ID="Severity" Value="50" />
+        </Group>
+        <Group ID="[15]">
+          <Property ID="Message" Value="Holding brake problem on parallel axis" />
+          <Property ID="Code" Value="2013" />
+          <Property ID="Severity" Value="50" />
+        </Group>
+        <Group ID="[19]">
+          <Property ID="Message" Value="Movement error limit reached on parallel axis" />
+          <Property ID="Code" Value="2014" />
+          <Property ID="Severity" Value="30" />
+        </Group>
+        <Group ID="[20]">
+          <Property ID="Message" Value="HW or SW movement limits reached on parallel axis" />
+          <Property ID="Code" Value="2015" />
+          <Property ID="Severity" Value="30" />
+        </Group>
+        <Group ID="[21]">
+          <Property ID="Message" Value="Enable input low on parallel axis" />
+          <Property ID="Code" Value="2016" />
+          <Property ID="Severity" Value="10" />
+        </Group>
+      </Group>
+    </Selector>
   </Element>
   <Element ID="gConveyorAxis" Type="axis">
     <Property ID="BaseTypeIsReadOnly" Value="0" />
@@ -104,6 +269,89 @@
         <Property ID="Deceleration" Value="50.0" />
       </Selector>
     </Selector>
-    <Selector ID="Alarms" Value="None" />
+    <Selector ID="Alarms" Value="MpAlarmX">
+      <Group ID="mapp.AlarmX.Core.Configuration">
+        <Group ID="[0]">
+          <Property ID="Message" Value="System problem on Convoyer axis" />
+          <Property ID="Code" Value="3001" />
+          <Property ID="Severity" Value="50" />
+        </Group>
+        <Group ID="[1]">
+          <Property ID="Message" Value="Initialization problem on Convoyer axis" />
+          <Property ID="Code" Value="3002" />
+          <Property ID="Severity" Value="10" />
+        </Group>
+        <Group ID="[2]">
+          <Property ID="Message" Value="Parameter problem on Convoyer axis" />
+          <Property ID="Code" Value="3003" />
+          <Property ID="Severity" Value="10" />
+        </Group>
+        <Group ID="[3]">
+          <Property ID="Message" Value="Operation problem on Convoyer axis" />
+          <Property ID="Code" Value="3004" />
+          <Property ID="Severity" Value="30" />
+        </Group>
+        <Group ID="[4]">
+          <Property ID="Message" Value="Data access problem on Convoyer axis" />
+          <Property ID="Code" Value="3005" />
+          <Property ID="Severity" Value="10" />
+        </Group>
+        <Group ID="[5]">
+          <Property ID="Message" Value="Syntax error on Convoyer axis" />
+          <Property ID="Code" Value="3006" />
+          <Property ID="Severity" Value="10" />
+        </Group>
+        <Group ID="[9]">
+          <Property ID="Message" Value="Network problem on Convoyer axis" />
+          <Property ID="Code" Value="3007" />
+          <Property ID="Severity" Value="10" />
+        </Group>
+        <Group ID="[10]">
+          <Property ID="Message" Value="Encoder problem on Convoyer axis" />
+          <Property ID="Code" Value="3008" />
+          <Property ID="Severity" Value="30" />
+        </Group>
+        <Group ID="[11]">
+          <Property ID="Message" Value="Drive problem on Convoyer axis" />
+          <Property ID="Code" Value="3009" />
+          <Property ID="Severity" Value="30" />
+        </Group>
+        <Group ID="[12]">
+          <Property ID="Message" Value="IO problem on Convoyer axis" />
+          <Property ID="Code" Value="3010" />
+          <Property ID="Severity" Value="20" />
+        </Group>
+        <Group ID="[13]">
+          <Property ID="Message" Value="Supply problem on Convoyer axis" />
+          <Property ID="Code" Value="3011" />
+          <Property ID="Severity" Value="10" />
+        </Group>
+        <Group ID="[14]">
+          <Property ID="Message" Value="Motor problem on Convoyer axis" />
+          <Property ID="Code" Value="3012" />
+          <Property ID="Severity" Value="50" />
+        </Group>
+        <Group ID="[15]">
+          <Property ID="Message" Value="Holding brake problem on Convoyer axis" />
+          <Property ID="Code" Value="3013" />
+          <Property ID="Severity" Value="50" />
+        </Group>
+        <Group ID="[19]">
+          <Property ID="Message" Value="Movement error limit reached on Convoyer axis" />
+          <Property ID="Code" Value="3014" />
+          <Property ID="Severity" Value="30" />
+        </Group>
+        <Group ID="[20]">
+          <Property ID="Message" Value="HW or SW movement limits reached on Convoyer axis" />
+          <Property ID="Code" Value="3015" />
+          <Property ID="Severity" Value="30" />
+        </Group>
+        <Group ID="[21]">
+          <Property ID="Message" Value="Enable input low on Convoyer axis" />
+          <Property ID="Code" Value="3016" />
+          <Property ID="Severity" Value="10" />
+        </Group>
+      </Group>
+    </Selector>
   </Element>
 </Configuration>

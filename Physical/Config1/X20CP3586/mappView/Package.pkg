@@ -6,8 +6,13 @@
     <Object Type="File">Config.mappviewcfg</Object>
     <Object Type="File">ContentMainPage.binding</Object>
     <Object Type="File">ContentManPage.binding</Object>
-    <Object Type="File">MainContent.binding</Object>
-    <Object Type="File">MainContent.eventbinding</Object>
     <Object Type="File">LoginMainCntent.eventbinding</Object>
+    <Object Type="File">InfoManPage.binding</Object>
+    <Object Type="File">MainServContent.binding</Object>
+    <Object Type="File">SwitchUserInfoContent.binding</Object>
+    <Object Type="File">InfoMainPage.binding</Object>
+    <Object Type="File">MainServContent.eventbinding</Object>
+    <Object Type="File">InitMainContent.binding</Object>
+    <Object Type="File">InitMainContent.eventbinding</Object>
   </Objects>
 </Package>

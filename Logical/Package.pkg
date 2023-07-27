@@ -10,6 +10,7 @@
     <Object Type="Program" Language="IEC">ParallelAxis</Object>
     <Object Type="Program" Language="IEC">PerpendicularAxis</Object>
     <Object Type="Program" Language="IEC">ConveyorAxis</Object>
+    <Object Type="Program" Language="IEC">Alarm</Object>
     <Object Type="Package">mappView</Object>
   </Objects>
 </Package>
