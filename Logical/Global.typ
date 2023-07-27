@@ -2,14 +2,12 @@
 TYPE
 	gOperatingPanelTyp : 	STRUCT 
 		diStart : BOOL;
-		diStop : BOOL;
 		diHomeParallel : BOOL;
 		diHomePerpendicular : BOOL;
 		StartSequence : BOOL;
 		StopSequence : BOOL;
 		SwitchModeToAuto : USINT;
 		SwitchModeToMan : BOOL;
-		RestartSequence : BOOL;
 	END_STRUCT;
 	gConvoyerSettingsType : 	STRUCT 
 		doReadyToWork : BOOL;

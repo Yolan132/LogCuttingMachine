@@ -61,10 +61,6 @@ PROGRAM _CYCLIC
 				
 						WorkManMachine := RUN;
 					END_IF;
-			
-					IF EDGEPOS(gOperatingPanel.diStop) THEN
-						gStateSetter := 0;
-					END_IF;
 					
 					IF EDGEPOS(gOperatingPanel.diHomePerpendicular) THEN
 						WorkManMachine := HOMEAGAIN;
