@@ -7,7 +7,9 @@ TYPE
 		CUT_SQ := 2,
 		RETURN_SQ := 3,
 		SWITCH_MODE := 4,
-		END_POSITION
+		LOAD_1M := 5,
+		LOAD_2M := 6,
+		LOAD_3M := 7
 		);
 	InitProcessTyp : 
 		(

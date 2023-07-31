@@ -8,4 +8,5 @@ VAR
 	MenageMachine : MenagementTyp;
 	WorkAutoMachine : WorkAutoProcessTyp;
 	SequencerParallel : MpAxisCamSequencer;
+	McAcpCamPar : McAcpAxCamAutParType;
 END_VAR

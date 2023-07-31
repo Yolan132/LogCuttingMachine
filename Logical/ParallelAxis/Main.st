@@ -11,8 +11,14 @@ PROGRAM _INIT
 	WorkManMachine := WAIT;
 	WorkAutoMachine := START_POSITION;
 	
-	//SequencerParallel(MpLink := ADR(gParallelAxis), Enable := TRUE, Parameters := ADR(SequencePar), MpLinkMaster := ADR(gConveyorAxis));
-	 
+	SequencePar.CamSequence.Data.DataAddress := ADR(McAcpCamPar);
+	SequencePar.CamSequence.Data.DataSize := SIZEOF(McAcpCamPar);
+	
+	SequencePar.CamSequence.Set.Command := mcSET_UPDATE_FROM_ADR;
+	SequencePar.CamSequence.Set.Mode := mcAXIS_CAM_SEQ_SET_ON_UPDATE;
+	SequencePar.CamSequence.Get.Command := mcGET_PAR_ACTUAL;
+	SequencePar.CamSequence.Get.GetOnEnable := TRUE;
+		 
 END_PROGRAM
 
 PROGRAM _CYCLIC
@@ -94,10 +100,11 @@ PROGRAM _CYCLIC
 			
 		WORK_A:	
 			CASE WorkAutoMachine OF
-				START_POSITION:				
+				START_POSITION:	
+
 					MpParallelPar.Position := -0.25;
 					MpAxisParallel.MoveAbsolute := TRUE;
-					
+	
 					IF MpAxisParallel.MoveDone THEN
 						MpAxisParallel.MoveAbsolute := FALSE;
 						WorkAutoMachine := READY;
@@ -116,7 +123,7 @@ PROGRAM _CYCLIC
 						WorkAutoMachine := CUT_SQ;
 							
 					END_IF;
-				
+		
 				CUT_SQ:
 					SequencerParallel.StartSequence := TRUE;
 					
@@ -137,6 +144,18 @@ PROGRAM _CYCLIC
 						
 						WorkAutoMachine := SWITCH_MODE;
 					END_IF;
+					
+					IF gOperatingPanel.LoadRecipe1M THEN
+	  					WorkAutoMachine := LOAD_1M;
+					END_IF;
+					
+					IF gOperatingPanel.LoadRecipe2M THEN
+						WorkAutoMachine := LOAD_2M;
+					END_IF;
+					
+					IF gOperatingPanel.LoadRecipe3M THEN
+	  					WorkAutoMachine := LOAD_3M;
+					END_IF;
 				
 				SWITCH_MODE:
 					IF gPerpendicularSettings.ReadyToChange THEN
@@ -149,8 +168,83 @@ PROGRAM _CYCLIC
 							
 							WorkAutoMachine := READY;
 						END_IF;	
-					END_IF;		  
+					END_IF;	
+				
+				LOAD_1M:					
+					McAcpCamPar.State[1].MasterFactor := 300;
+					McAcpCamPar.State[1].SlaveFactor := 300;
+				
+					McAcpCamPar.State[1].CompensationMode := mcCOMP_BETWEEN_CAMS_DIRECT;
+					McAcpCamPar.State[1].CompensationParameters.MasterCompDistance := 0.2;
+					McAcpCamPar.State[1].CompensationParameters.SlaveCompDistance := 0.2;
+				
+					
+					McAcpCamPar.State[2].MasterFactor := 300;
+					McAcpCamPar.State[2].SlaveFactor := -300;
+					
+					McAcpCamPar.State[2].CompensationMode := mcCOMP_BETWEEN_CAMS_DIRECT;
+					McAcpCamPar.State[2].CompensationParameters.MasterCompDistance := 0.2;
+					McAcpCamPar.State[2].CompensationParameters.SlaveCompDistance := -0.2;
+					
 
+					
+					SequencerParallel.Update := TRUE;
+					
+					IF SequencerParallel.UpdateDone THEN
+						SequencerParallel.Update := FALSE;
+						
+						WorkAutoMachine := RETURN_SQ;
+					END_IF;
+				
+				LOAD_2M:
+					McAcpCamPar.State[1].MasterFactor := 300;
+					McAcpCamPar.State[1].SlaveFactor := 300;
+					
+					McAcpCamPar.State[1].CompensationMode := mcCOMP_BETWEEN_CAMS_DIRECT;
+					McAcpCamPar.State[1].CompensationParameters.MasterCompDistance := 0.2;
+					McAcpCamPar.State[1].CompensationParameters.SlaveCompDistance := 0.2;
+				
+					
+					McAcpCamPar.State[2].MasterFactor := 1200;
+					McAcpCamPar.State[2].SlaveFactor := -300;
+				
+					McAcpCamPar.State[2].CompensationMode := mcCOMP_BETWEEN_CAMS_DIRECT;
+					McAcpCamPar.State[2].CompensationParameters.MasterCompDistance := 0.3;
+					McAcpCamPar.State[2].CompensationParameters.SlaveCompDistance := -0.2;
+					
+
+					
+					SequencerParallel.Update := TRUE;
+					
+					IF SequencerParallel.UpdateDone THEN
+						SequencerParallel.Update := FALSE;
+						
+						WorkAutoMachine := RETURN_SQ;
+					END_IF;
+				
+				LOAD_3M:
+					McAcpCamPar.State[1].MasterFactor := 300;
+					McAcpCamPar.State[1].SlaveFactor := 300;
+					
+					McAcpCamPar.State[1].CompensationMode := mcCOMP_BETWEEN_CAMS_DIRECT;
+					McAcpCamPar.State[1].CompensationParameters.MasterCompDistance := 0.2;
+					McAcpCamPar.State[1].CompensationParameters.SlaveCompDistance := 0.2;
+				
+					
+					McAcpCamPar.State[2].MasterFactor := 2200;
+					McAcpCamPar.State[2].SlaveFactor := -300;
+				
+					McAcpCamPar.State[2].CompensationMode := mcCOMP_BETWEEN_CAMS_DIRECT;
+					McAcpCamPar.State[2].CompensationParameters.MasterCompDistance := 0.3;
+					McAcpCamPar.State[2].CompensationParameters.SlaveCompDistance := -0.2;
+					
+					SequencerParallel.Update := TRUE;
+					
+					IF SequencerParallel.UpdateDone THEN
+						SequencerParallel.Update := FALSE;
+						
+						WorkAutoMachine := RETURN_SQ;
+					END_IF;
 			END_CASE;
 
 		
@@ -161,11 +255,13 @@ PROGRAM _CYCLIC
 	END_CASE;
 	
 	SequencerParallel(MpLink := ADR(gParallelAxis), Enable := TRUE, Parameters := ADR(SequencePar), MpLinkMaster := ADR(gConveyorAxis));
+	//MpAxisCamSequencer_0(MpLink := , Enable := , ErrorReset := , Parameters := , Update := , MpLinkMaster := , Signal1 := , Signal2 := , Signal3 := , Signal4 := , StartSequence := , Continue := , EndSequence := , GetSequence := , ParLock := , OffsetShift := , PhaseShift := , CamPrepare := , Recovery := );
 	
 	MpAxisParallel.ErrorReset := gResetErrors;
 	
 	Saw_SimOutputs.aoDriveParallelPosition := LREAL_TO_REAL(MpAxisParallel.Position);
 	MpAxisParallel();
+	
 	
 END_PROGRAM
 

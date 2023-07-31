@@ -8,4 +8,5 @@ VAR
 	SequencePar : MpAxisCamSequencerParType;
 	WorkAutoMachine : WorkAutoProcessTyp;
 	WorkManMachine : WorkManProcessTyp;
+	McAcpCamPar : McAcpAxCamAutParType;
 END_VAR

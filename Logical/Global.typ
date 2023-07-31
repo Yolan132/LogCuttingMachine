@@ -11,8 +11,11 @@ TYPE
 		diHomePerpendicular : BOOL;
 		StartSequence : BOOL;
 		StopSequence : BOOL;
-		SwitchModeToAuto : USINT;
+		SwitchModeToAuto : BOOL;
 		SwitchModeToMan : BOOL;
+		LoadRecipe1M : BOOL;
+		LoadRecipe2M : BOOL;
+		LoadRecipe3M : BOOL;
 	END_STRUCT;
 	gParallelSettingsType : 	STRUCT 
 		doReadyToWork : BOOL;

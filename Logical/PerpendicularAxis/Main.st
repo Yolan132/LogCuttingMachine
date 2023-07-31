@@ -10,6 +10,14 @@ PROGRAM _INIT
 	InitMachine := INIT;
 	WorkManMachine := WAIT;
 	WorkAutoMachine := START_POSITION;
+	
+	SequencePar.CamSequence.Data.DataAddress := ADR(McAcpCamPar);
+	SequencePar.CamSequence.Data.DataSize := SIZEOF(McAcpCamPar);
+	
+	SequencePar.CamSequence.Set.Command := mcSET_UPDATE_FROM_ADR;
+	SequencePar.CamSequence.Set.Mode := mcAXIS_CAM_SEQ_SET_ON_UPDATE;
+	SequencePar.CamSequence.Get.Command := mcGET_PAR_ACTUAL;
+	SequencePar.CamSequence.Get.GetOnEnable := TRUE;
 	 
 END_PROGRAM
 
@@ -114,6 +122,14 @@ PROGRAM _CYCLIC
 						WorkAutoMachine := CUT_SQ;
 							
 					END_IF;
+					
+					IF gOperatingPanel.LoadRecipe1M THEN
+						WorkAutoMachine := LOAD_1M;
+					END_IF;
+					
+					IF gOperatingPanel.LoadRecipe2M THEN
+						WorkAutoMachine := LOAD_2M;
+					END_IF;
 				
 				CUT_SQ:
 					SequencerPerpendicular.StartSequence := TRUE;
@@ -137,7 +153,19 @@ PROGRAM _CYCLIC
 						
 						WorkAutoMachine := SWITCH_MODE;
 					END_IF;
+					
+					IF gOperatingPanel.LoadRecipe1M THEN
+						WorkAutoMachine := LOAD_1M;
+					END_IF;
+					
+					IF gOperatingPanel.LoadRecipe2M THEN
+						WorkAutoMachine := LOAD_2M;
+					END_IF;
 				
+					IF gOperatingPanel.LoadRecipe3M THEN
+						WorkAutoMachine := LOAD_3M;
+					END_IF;
+					
 				SWITCH_MODE:
 					MpPerpendicularPar.Position := 0.4;
 					MpAxisPerpendicular.MoveAbsolute := TRUE;
@@ -149,6 +177,77 @@ PROGRAM _CYCLIC
 						
 						WorkAutoMachine := READY;
 					END_IF;	
+				
+				LOAD_1M:					
+					McAcpCamPar.State[1].MasterFactor := 125;
+					McAcpCamPar.State[1].SlaveFactor := 300;
+					McAcpCamPar.State[1].CompensationMode := mcCOMP_BETWEEN_CAMS_DIRECT;
+					McAcpCamPar.State[1].CompensationParameters.MasterCompDistance := 0.125;
+					McAcpCamPar.State[1].CompensationParameters.SlaveCompDistance := 0.2;		
+					
+					McAcpCamPar.State[2].MasterFactor := 125;
+					McAcpCamPar.State[2].SlaveFactor := -300;
+					McAcpCamPar.State[2].CompensationMode := mcCOMP_BETWEEN_CAMS_DIRECT;
+					McAcpCamPar.State[2].CompensationParameters.MasterCompDistance := 0.125;
+					McAcpCamPar.State[2].CompensationParameters.SlaveCompDistance := -0.2;
+					
+					McAcpCamPar.State[3].MasterFactor := 500;
+					McAcpCamPar.State[3].SlaveFactor := 0;
+					McAcpCamPar.State[3].CompensationMode := mcCOMP_OFF;
+			
+					SequencerPerpendicular.Update := TRUE;
+					
+					IF SequencerPerpendicular.UpdateDone THEN
+						SequencerPerpendicular.Update := FALSE;
+						
+						WorkAutoMachine := RETURN_SQ;
+					END_IF;
+				
+				LOAD_2M:
+					McAcpCamPar.State[1].MasterFactor := 125;
+					McAcpCamPar.State[1].SlaveFactor := 300;
+					McAcpCamPar.State[1].CompensationParameters.MasterCompDistance := 0.125;
+					McAcpCamPar.State[1].CompensationParameters.SlaveCompDistance := 0.2;
+				
+					McAcpCamPar.State[2].MasterFactor := 125;
+					McAcpCamPar.State[2].SlaveFactor := -300;
+					McAcpCamPar.State[2].CompensationParameters.MasterCompDistance := 0.125;
+					McAcpCamPar.State[2].CompensationParameters.SlaveCompDistance := -0.2;
+				
+					McAcpCamPar.State[3].MasterFactor := 1500;
+					McAcpCamPar.State[3].SlaveFactor := 0;
+					McAcpCamPar.State[3].CompensationMode := mcCOMP_OFF;
+				
+					SequencerPerpendicular.Update := TRUE;
+					
+					IF SequencerPerpendicular.UpdateDone THEN
+						SequencerPerpendicular.Update := FALSE;
+						
+						WorkAutoMachine := RETURN_SQ;
+					END_IF;
+				
+				LOAD_3M:
+					McAcpCamPar.State[1].MasterFactor := 125;
+					McAcpCamPar.State[1].SlaveFactor := 200;
+					McAcpCamPar.State[1].CompensationParameters.MasterCompDistance := 0.125;
+					McAcpCamPar.State[1].CompensationParameters.SlaveCompDistance := 0.3;
+				
+					McAcpCamPar.State[2].MasterFactor := 125;
+					McAcpCamPar.State[2].SlaveFactor := -200;
+					McAcpCamPar.State[2].CompensationParameters.MasterCompDistance := 0.125;
+					McAcpCamPar.State[2].CompensationParameters.SlaveCompDistance := -0.3;
+				
+					McAcpCamPar.State[3].MasterFactor := 2500;
+					McAcpCamPar.State[3].SlaveFactor := 0;
+					McAcpCamPar.State[3].CompensationMode := mcCOMP_OFF;
+				
+					SequencerPerpendicular.Update := TRUE;
+					
+					IF SequencerPerpendicular.UpdateDone THEN
+						SequencerPerpendicular.Update := FALSE;
+						
+						WorkAutoMachine := RETURN_SQ;
+					END_IF;
 				
 			END_CASE;
 		
