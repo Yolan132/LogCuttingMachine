@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="gRecipeXml" Type="mprecipexml">
+    <Selector ID="Alarms" Value="MpAlarmX" />
+  </Element>
+  <Element ID="gRecipeXml_1" Type="mprecipexml" />
+  <Element ID="gRecipeXml_2" Type="mprecipexml" />
+</Configuration>

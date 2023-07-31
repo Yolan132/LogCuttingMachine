@@ -2,7 +2,6 @@ VAR
 	ResetErrors : BOOL;
 	HMIman : BOOL;
 	SwitchModeToMan : BOOL;
-	RestartAutoSequence : BOOL;
 	StopAutoSequence : BOOL;
 	StartAutoSequence : BOOL;
 	diInitializeMachine : BOOL;

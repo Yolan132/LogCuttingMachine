@@ -1,5 +1,5 @@
 
-PROGRAM _INIT
+PROGRAM _INIT	
 	ConveyorSpeed := 100;
 	PerpendicularStep := 0.2;
 	ParallelStep := 0.2;
@@ -12,6 +12,7 @@ PROGRAM _INIT
 	gInitProgressBarValue := 0;
 	
 	Saw_SimOutputs.doSawOn := gSawOn;
+	
 	
 END_PROGRAM
 
@@ -109,9 +110,8 @@ PROGRAM _CYCLIC
 			gOperatingPanel.StartSequence := StartAutoSequence;
 			gOperatingPanel.SwitchModeToMan := SwitchModeToMan;
 			gOperatingPanel.StopSequence := StopAutoSequence;
-			gOperatingPanel.RestartSequence := RestartAutoSequence;
 			
-			ResetErrors := gResetErrors;
+			//ResetErrors := gResetErrors;
 			
 			IF StartAutoSequence THEN
 	  			gConveyorSettings.diRun := TRUE;

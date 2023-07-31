@@ -7,4 +7,7 @@ VAR
 	gPerpendicularSettings : gPerpendicularSettingsType;
 	gSawOn : BOOL;
 	gParallelSettings : gParallelSettingsType;
+	gRecipe1M : gRecipe1MTyp;
+	gRecipe2M : gRecipe2MTyp;
+	gRecipe3M : gRecipe3MTyp;
 END_VAR

@@ -28,7 +28,6 @@
       <GlobalVariables Name="Global Variables">
         <Variable Name="gOperatingPanel">
           <Variable Name="diStart" />
-          <Variable Name="diStop" />
           <Variable AclId="3" AclInherit="2" Name="diHomeParallel" />
           <Variable AclId="3" AclInherit="2" Name="diHomePerpendicular" />
         </Variable>

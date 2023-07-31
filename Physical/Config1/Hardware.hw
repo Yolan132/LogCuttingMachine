@@ -287,7 +287,7 @@
     <Parameter ID="Cyclic1Tolerance" Value="0" />
     <Group ID="FileDevice1" />
     <Parameter ID="FileDeviceName1" Value="USER" />
-    <Parameter ID="FileDevicePath1" Value="USER_PATH" />
+    <Parameter ID="FileDevicePath1" Value="C:\temp" />
     <Parameter ID="ActivateOpcUa" Value="1" />
     <Parameter ID="OpcUaInformationModels_PV_Version" Value="1" />
   </Module>

@@ -4,5 +4,6 @@
   <Objects>
     <Object Type="File">Config.mpalarmxcore</Object>
     <Object Type="File">Config_3.mpalarmxhistory</Object>
+    <Object Type="File">Config_4.mprecipexml</Object>
   </Objects>
 </Package>

@@ -1,0 +1,8 @@
+VAR
+	MpRecipeXml_0 : MpRecipeXml;
+	MpRecipeRegPar_0 : MpRecipeRegPar;
+	MpRecipeXml_1 : MpRecipeXml;
+	MpRecipeRegPar_1 : MpRecipeRegPar;
+	MpRecipeXml_2 : MpRecipeXml;
+	MpRecipeRegPar_2 : MpRecipeRegPar;
+END_VAR
