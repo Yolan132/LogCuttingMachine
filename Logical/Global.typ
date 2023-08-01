@@ -1,5 +1,13 @@
 
 TYPE
+	gRecipeMenagmentType : 	STRUCT 
+		Load1M : BOOL;
+		Save1M : BOOL;
+		Save2M : BOOL;
+		Load2M : BOOL;
+		Save3M : BOOL;
+		Load3M : BOOL;
+	END_STRUCT;
 	gConvoyerSettingsType : 	STRUCT 
 		doReadyToWork : BOOL;
 		diRun : BOOL;
@@ -16,6 +24,9 @@ TYPE
 		LoadRecipe1M : BOOL;
 		LoadRecipe2M : BOOL;
 		LoadRecipe3M : BOOL;
+		SaveRecipe1M : BOOL;
+		SaveRecipe2M : BOOL;
+		SaveRecipe3M : BOOL;
 	END_STRUCT;
 	gParallelSettingsType : 	STRUCT 
 		doReadyToWork : BOOL;
@@ -34,6 +45,9 @@ TYPE
 		AutoReady : BOOL;
 		ReadyToChange : BOOL;
 		AfterSwitchFlag : BOOL;
+		AccTorque : REAL;
+		WoodLogLength : REAL;
+		FeedRate : REAL;
 	END_STRUCT;
 	gRecipe1MTyp : 	STRUCT 
 		WoodLogLength : REAL := 1;
@@ -50,5 +64,4 @@ TYPE
 		AccTorqueLimit : REAL := 10;
 		SawFeedRate : REAL := 3;
 	END_STRUCT;
-
 END_TYPE

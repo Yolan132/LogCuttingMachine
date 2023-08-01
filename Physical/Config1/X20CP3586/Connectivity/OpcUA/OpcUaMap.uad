@@ -7,41 +7,76 @@
         <ACE RoleName="Shift Leader" Access="0x005F" />
         <ACE RoleName="Service" Access="0x005F" />
         <ACE RoleName="Operator" Access="0x005F" />
-      </ACL>
-      <ACL Id="2">
-        <ACE RoleName="Shift Leader" Access="0x007F" />
-        <ACE RoleName="Service" Access="0x007F" />
-        <ACE RoleName="Operator" Access="0x007F" />
+        <ACE RoleName="Administrators" Access="0x017F" />
       </ACL>
       <ACL Id="3">
         <ACE RoleName="Shift Leader" Access="0x005F" />
         <ACE RoleName="Service" Access="0x007F" />
         <ACE RoleName="Operator" Access="0x005F" />
+        <ACE RoleName="Administrators" Access="0x017F" />
+      </ACL>
+      <ACL Id="5">
+        <ACE RoleName="Shift Leader" Access="0x007F" />
+        <ACE RoleName="Service" Access="0x005F" />
+        <ACE RoleName="Operator" Access="0x005F" />
+        <ACE RoleName="Administrators" Access="0x017F" />
+      </ACL>
+      <ACL Id="6">
+        <ACE RoleName="Shift Leader" Access="0x005F" />
+        <ACE RoleName="Service" Access="0x007F" />
+        <ACE RoleName="Operator" Access="0x007F" />
+        <ACE RoleName="Administrators" Access="0x017F" />
+      </ACL>
+      <ACL Id="7">
+        <ACE RoleName="Shift Leader" Access="0x007F" />
+        <ACE RoleName="Service" Access="0x007F" />
+        <ACE RoleName="Operator" Access="0x007F" />
+        <ACE RoleName="Administrators" Access="0x017F" />
+      </ACL>
+      <ACL Id="8">
+        <ACE RoleName="Shift Leader" Access="0x005F" />
+        <ACE RoleName="Service" Access="0x005F" />
+        <ACE RoleName="Operator" Access="0x007F" />
+        <ACE RoleName="Administrators" Access="0x017F" />
+      </ACL>
+      <ACL Id="9">
+        <ACE RoleName="Shift Leader" Access="0x007F" />
+        <ACE RoleName="Service" Access="0x005F" />
+        <ACE RoleName="Operator" Access="0x007F" />
+        <ACE RoleName="Administrators" Access="0x017F" />
       </ACL>
     </ACLAliases>
     <EURangeViolationAliases />
     <EURangesAliases />
     <EngineeringUnitAliases />
   </Aliases>
-  <DefaultView AclId="2">
+  <DefaultView AclId="1">
     <Module Name="&lt;Default&gt;">
       <GlobalVariables Name="Global Variables">
         <Variable Name="gOperatingPanel">
-          <Variable Name="diStart" />
+          <Variable AclId="7" AclInherit="2" Name="diStart" />
           <Variable AclId="3" AclInherit="2" Name="diHomeParallel" />
           <Variable AclId="3" AclInherit="2" Name="diHomePerpendicular" />
+          <Variable AclId="9" AclInherit="2" Name="LoadRecipe1M" />
+          <Variable AclId="9" AclInherit="2" Name="LoadRecipe2M" />
+          <Variable AclId="9" AclInherit="2" Name="LoadRecipe3M" />
+          <Variable AclId="5" AclInherit="2" Name="SaveRecipe1M" />
+          <Variable AclId="5" AclInherit="2" Name="SaveRecipe2M" />
+          <Variable AclId="5" AclInherit="2" Name="SaveRecipe3M" />
         </Variable>
         <Variable Name="gParallelSettings">
-          <Variable Name="aiParallelStep" />
+          <Variable AclId="3" AclInherit="2" Name="aiParallelStep" />
         </Variable>
-        <Variable Name="gPerpendicularSettings">
-          <Variable Name="aiPerpendicularStep" />
+        <Variable Name="gPerpendicularSettings" RecursiveEnable="2">
+          <Variable AclId="3" AclInherit="2" Name="aiPerpendicularStep" />
+          <Variable AclId="5" AclInherit="2" Name="AccTorque" />
+          <Variable AclId="5" AclInherit="2" Name="WoodLogLength" />
+          <Variable AclId="5" AclInherit="2" Name="FeedRate" />
         </Variable>
         <Variable Name="gInitProgressBarValue" />
-        <Variable Name="gResetErrors" />
       </GlobalVariables>
       <Task Name="Main">
-        <Variable AclId="3" AclInherit="2" Name="ConveyorSpeed" />
+        <Variable AclId="6" AclInherit="2" Name="ConveyorSpeed" />
         <Variable Name="OperatingMode" />
         <Variable AclId="3" AclInherit="2" Name="ParallelStep" />
         <Variable AclId="3" AclInherit="2" Name="PerpendicularStep" />
@@ -54,14 +89,14 @@
         <Variable AclId="3" AclInherit="2" Name="ConveyorOff" />
         <Variable AclId="3" AclInherit="2" Name="ConveyorOn" />
         <Variable AclId="3" AclInherit="2" Name="SawOff" />
-        <Variable Name="diInitializeMachine" />
-        <Variable Name="HMIauto" />
-        <Variable AclId="3" AclInherit="2" Name="HMIman" />
-        <Variable Name="StartAutoSequence" />
-        <Variable Name="StopAutoSequence" />
-        <Variable Name="SwitchModeToAuto" />
-        <Variable Name="SwitchModeToMan" />
-        <Variable Name="ResetErrors" />
+        <Variable AclId="7" AclInherit="2" Name="diInitializeMachine" />
+        <Variable AclId="7" AclInherit="2" Name="HMIauto" />
+        <Variable AclId="7" AclInherit="2" Name="HMIman" />
+        <Variable AclId="8" AclInherit="2" Name="StartAutoSequence" />
+        <Variable AclId="8" AclInherit="2" Name="StopAutoSequence" />
+        <Variable AclId="8" AclInherit="2" Name="SwitchModeToAuto" />
+        <Variable AclId="3" AclInherit="2" Name="SwitchModeToMan" />
+        <Variable AclId="6" AclInherit="2" Name="ResetErrors" />
       </Task>
       <Task Name="ConveyorAx">
         <Variable Name="MpConveyorPar">

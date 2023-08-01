@@ -105,13 +105,15 @@ PROGRAM _CYCLIC
 			END_IF;
 			
 		AUTO:				
-			gConveyorSettings.aiSpeed := (ConveyorSpeed / 100);			
+			gConveyorSettings.aiSpeed := (ConveyorSpeed / 100);	
+			
+			gRecipeMenagement.Save1M := FALSE;
+			gRecipeMenagement.Save2M := FALSE;
+			gRecipeMenagement.Save3M := FALSE;
 			
 			gOperatingPanel.StartSequence := StartAutoSequence;
 			gOperatingPanel.SwitchModeToMan := SwitchModeToMan;
 			gOperatingPanel.StopSequence := StopAutoSequence;
-			
-			//ResetErrors := gResetErrors;
 			
 			IF StartAutoSequence THEN
 	  			gConveyorSettings.diRun := TRUE;
@@ -119,6 +121,27 @@ PROGRAM _CYCLIC
 			
 			IF StopAutoSequence THEN
 	  			gConveyorSettings.diRun := FALSE;
+			END_IF;
+			
+			IF gOperatingPanel.SaveRecipe1M THEN
+				gRecipe1M.AccTorqueLimit := gPerpendicularSettings.AccTorque;
+				gRecipe1M.SawFeedRate := gPerpendicularSettings.FeedRate;
+				gRecipe1M.WoodLogLength := gPerpendicularSettings.WoodLogLength;
+				gRecipeMenagement.Save1M := TRUE;
+			END_IF;
+			
+			IF gOperatingPanel.SaveRecipe2M THEN
+				gRecipe2M.AccTorqueLimit := gPerpendicularSettings.AccTorque;
+				gRecipe2M.SawFeedRate := gPerpendicularSettings.FeedRate;
+				gRecipe2M.WoodLogLength := gPerpendicularSettings.WoodLogLength;
+				gRecipeMenagement.Save2M := TRUE;
+			END_IF;
+			
+			IF gOperatingPanel.SaveRecipe3M THEN
+				gRecipe3M.AccTorqueLimit := gPerpendicularSettings.AccTorque;
+				gRecipe3M.SawFeedRate := gPerpendicularSettings.FeedRate;
+				gRecipe3M.WoodLogLength := gPerpendicularSettings.WoodLogLength;
+				gRecipeMenagement.Save3M := TRUE;
 			END_IF;
 			
 			IF gParallelSettings.ReadyToChange THEN

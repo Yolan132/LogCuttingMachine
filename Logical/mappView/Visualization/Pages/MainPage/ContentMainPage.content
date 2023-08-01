@@ -1,8 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="ContentMainPage" height="660" width="1160" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton1" top="160" left="680" width="140" height="120" zIndex="0" text="Stop" />
-    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton2" top="160" left="340" width="140" height="120" zIndex="1" text="Start" />
-    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="SwitchButton" top="580" left="940" width="160" zIndex="2" text="SwitchToAuto" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton1" top="100" left="360" width="140" height="120" zIndex="0" text="Stop" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton2" top="100" left="120" width="140" height="120" zIndex="1" text="Start" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="SwitchButton" top="260" left="240" width="160" zIndex="2" text="SwitchToAuto" />
+    <Widget xsi:type="widgets.brease.TabControl" id="RecipeTab" top="60" left="640" width="460" height="540" zIndex="3">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.TabItem" id="ParametersTab" left="0" zIndex="0" text="Parameters">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.NumericOutput" id="ConveyerSpeedOutput" top="70" left="260" zIndex="0" />
+            <Widget xsi:type="widgets.brease.NumericInput" id="ConveyerSpeedInput" top="130" left="260" zIndex="1" />
+            <Widget xsi:type="widgets.brease.NumericOutput" id="FeedRateOutput" top="250" left="260" zIndex="2" />
+            <Widget xsi:type="widgets.brease.NumericOutput" id="AccOut" top="310" left="260" zIndex="3" />
+            <Widget xsi:type="widgets.brease.NumericOutput" id="LogLengthOut" top="370" left="260" zIndex="4" />
+            <Widget xsi:type="widgets.brease.Label" id="ConveyorVelocityLabel" top="70" left="80" width="120" zIndex="5" text="Conveyor velocity" />
+            <Widget xsi:type="widgets.brease.Label" id="Label1" top="130" left="80" width="140" zIndex="6" text="Set Conveyor velocity" />
+            <Widget xsi:type="widgets.brease.Label" id="Label2" top="70" left="380" width="40" zIndex="7" text="m/s" />
+            <Widget xsi:type="widgets.brease.Label" id="Label3" top="130" left="380" width="20" zIndex="8" text="%" />
+            <Widget xsi:type="widgets.brease.Label" id="Label4" top="250" left="80" width="120" zIndex="9" text="Saw feed rate" />
+            <Widget xsi:type="widgets.brease.Label" id="Label5" top="310" left="80" width="160" zIndex="10" text="Accelerating torque limit" />
+            <Widget xsi:type="widgets.brease.Label" id="Label6" top="370" left="80" width="120" zIndex="11" text="Wood log length" />
+            <Widget xsi:type="widgets.brease.Label" id="Label13" top="250" left="380" width="40" zIndex="12" text="m/s" />
+            <Widget xsi:type="widgets.brease.Label" id="Label14" top="310" left="380" width="60" zIndex="13" text="Nm" />
+            <Widget xsi:type="widgets.brease.Label" id="Label15" top="370" left="380" width="40" zIndex="14" text="m" />
+          </Widgets>
+        </Widget>
+        <Widget xsi:type="widgets.brease.TabItem" id="TabItem2" left="0" zIndex="1" text="Recipes">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.NumericOutput" id="FeedOutput" top="70" left="20" width="80" zIndex="0" />
+            <Widget xsi:type="widgets.brease.NumericInput" id="FeedInput" top="190" left="20" zIndex="1" />
+            <Widget xsi:type="widgets.brease.NumericOutput" id="LogOutput" top="70" left="300" width="80" zIndex="2" />
+            <Widget xsi:type="widgets.brease.NumericOutput" id="AccOutput" top="70" left="160" width="80" zIndex="3" />
+            <Widget xsi:type="widgets.brease.NumericInput" id="AccInput" top="190" left="180" zIndex="4" />
+            <Widget xsi:type="widgets.brease.NumericInput" id="LogInput" top="190" left="340" zIndex="5" />
+            <Widget xsi:type="widgets.brease.MomentaryPushButton" id="Recipe1mSave" top="350" left="20" zIndex="6" text="Recipe 1M" />
+            <Widget xsi:type="widgets.brease.MomentaryPushButton" id="Recipe3mSave" top="350" left="340" zIndex="7" text="Recipe 3M" />
+            <Widget xsi:type="widgets.brease.MomentaryPushButton" id="Recipe2mSave" top="350" left="180" zIndex="8" text="Recipe 2M" />
+            <Widget xsi:type="widgets.brease.Label" id="Label7" top="30" left="40" width="100" zIndex="9" text="Saw feed rate:" />
+            <Widget xsi:type="widgets.brease.Label" id="Label8" top="30" left="180" width="120" zIndex="10" text="Accelarating torque:" />
+            <Widget xsi:type="widgets.brease.Label" id="Label9" top="30" left="320" width="100" zIndex="11" text="Wood log length:" />
+            <Widget xsi:type="widgets.brease.Label" id="Label10" top="130" left="180" width="140" zIndex="12" text="Set new values:" />
+            <Widget xsi:type="widgets.brease.Label" id="Label11" top="290" left="180" zIndex="13" text="Save as:" />
+            <Widget xsi:type="widgets.brease.Label" id="Label16" top="70" left="100" width="40" zIndex="14" text="mm/s" />
+            <Widget xsi:type="widgets.brease.Label" id="Label17" top="70" left="240" width="40" zIndex="15" text="Nm" />
+            <Widget xsi:type="widgets.brease.Label" id="Label18" top="70" left="380" width="60" zIndex="16" text="m" />
+            <Widget xsi:type="widgets.brease.Label" id="Label19" top="190" left="120" width="40" zIndex="17" text="m/s" />
+            <Widget xsi:type="widgets.brease.Label" id="Label20" top="190" left="280" width="40" zIndex="18" text="Nm" />
+            <Widget xsi:type="widgets.brease.Label" id="Label21" top="190" left="440" width="20" zIndex="19" text="m" />
+          </Widgets>
+        </Widget>
+      </Widgets>
+    </Widget>
+    <Widget xsi:type="widgets.brease.Label" id="Label12" top="400" left="280" zIndex="4" text="Load recipe:" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="Recipe1mLoad" top="500" left="100" zIndex="5" text="Recipe 1M" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="Recipe2mLoad" top="500" left="280" zIndex="6" text="Recipe 2M" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="Recipe3mLoad" top="500" left="460" zIndex="7" text="Recipe 3M" />
   </Widgets>
 </Content>

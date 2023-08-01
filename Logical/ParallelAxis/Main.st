@@ -123,6 +123,27 @@ PROGRAM _CYCLIC
 						WorkAutoMachine := CUT_SQ;
 							
 					END_IF;
+					
+					IF gOperatingPanel.LoadRecipe1M THEN
+						gParallelSettings.AutoReady := FALSE;
+						RecipeLoadedStationaryFlag := TRUE;
+						
+						WorkAutoMachine := LOAD_1M;
+					END_IF;
+					
+					IF gOperatingPanel.LoadRecipe2M THEN
+						gParallelSettings.AutoReady := FALSE;
+						RecipeLoadedStationaryFlag := TRUE;
+						
+						WorkAutoMachine := LOAD_2M;
+					END_IF;
+					
+					IF gOperatingPanel.LoadRecipe3M THEN
+						gParallelSettings.AutoReady := FALSE;
+						RecipeLoadedStationaryFlag := TRUE;
+						
+						WorkAutoMachine := LOAD_3M;
+					END_IF;
 		
 				CUT_SQ:
 					SequencerParallel.StartSequence := TRUE;
@@ -186,14 +207,19 @@ PROGRAM _CYCLIC
 					McAcpCamPar.State[2].CompensationParameters.MasterCompDistance := 0.2;
 					McAcpCamPar.State[2].CompensationParameters.SlaveCompDistance := -0.2;
 					
-
 					
 					SequencerParallel.Update := TRUE;
 					
 					IF SequencerParallel.UpdateDone THEN
 						SequencerParallel.Update := FALSE;
 						
-						WorkAutoMachine := RETURN_SQ;
+						IF RecipeLoadedStationaryFlag THEN
+							RecipeLoadedStationaryFlag := FALSE;
+							WorkAutoMachine := READY;
+						ELSE
+							WorkAutoMachine := RETURN_SQ;
+						END_IF;
+										
 					END_IF;
 				
 				LOAD_2M:
@@ -219,7 +245,12 @@ PROGRAM _CYCLIC
 					IF SequencerParallel.UpdateDone THEN
 						SequencerParallel.Update := FALSE;
 						
-						WorkAutoMachine := RETURN_SQ;
+						IF RecipeLoadedStationaryFlag THEN
+							RecipeLoadedStationaryFlag := FALSE;
+							WorkAutoMachine := READY;
+						ELSE
+							WorkAutoMachine := RETURN_SQ;
+						END_IF;
 					END_IF;
 				
 				LOAD_3M:
@@ -243,7 +274,12 @@ PROGRAM _CYCLIC
 					IF SequencerParallel.UpdateDone THEN
 						SequencerParallel.Update := FALSE;
 						
-						WorkAutoMachine := RETURN_SQ;
+						IF RecipeLoadedStationaryFlag THEN
+							RecipeLoadedStationaryFlag := FALSE;
+							WorkAutoMachine := READY;
+						ELSE
+							WorkAutoMachine := RETURN_SQ;
+						END_IF;
 					END_IF;
 			END_CASE;
 

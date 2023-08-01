@@ -9,4 +9,5 @@ VAR
 	WorkAutoMachine : WorkAutoProcessTyp;
 	SequencerParallel : MpAxisCamSequencer;
 	McAcpCamPar : McAcpAxCamAutParType;
+	RecipeLoadedStationaryFlag : BOOL;
 END_VAR

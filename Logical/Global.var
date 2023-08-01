@@ -1,4 +1,5 @@
 VAR
+	gRecipeMenagement : gRecipeMenagmentType;
 	gResetErrors : BOOL;
 	gInitProgressBarValue : USINT;
 	gOperatingPanel : gOperatingPanelTyp;

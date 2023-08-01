@@ -1,4 +1,5 @@
 VAR
+	WorkAutoMachine : WorkProcessTyp;
 	MpConveyorPar : MpAxisBasicParType;
 	MpAxisConveyor : MpAxisBasic;
 	InitMachine : InitProcessTyp;

@@ -5,5 +5,26 @@
     <Selector ID="Alarms" Value="MpAlarmX" />
   </Element>
   <Element ID="gRecipeXml_1" Type="mprecipexml" />
-  <Element ID="gRecipeXml_2" Type="mprecipexml" />
+  <Element ID="gRecipeXml_2" Type="mprecipexml">
+    <Selector ID="Alarms" Value="MpAlarmX">
+      <Group ID="mapp.AlarmX.Core.Configuration">
+        <Group ID="[0]">
+          <Property ID="Code" Value="4001" />
+          <Property ID="Severity" Value="20" />
+        </Group>
+        <Group ID="[1]">
+          <Property ID="Code" Value="4002" />
+          <Property ID="Severity" Value="10" />
+        </Group>
+        <Group ID="[2]">
+          <Property ID="Code" Value="4003" />
+          <Property ID="Severity" Value="50" />
+        </Group>
+        <Group ID="[3]">
+          <Property ID="Code" Value="4004" />
+          <Property ID="Severity" Value="40" />
+        </Group>
+      </Group>
+    </Selector>
+  </Element>
 </Configuration>

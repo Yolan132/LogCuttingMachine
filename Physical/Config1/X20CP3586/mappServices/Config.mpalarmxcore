@@ -49,6 +49,49 @@
           </Group>
         </Selector>
       </Group>
+      <Group ID="[3]">
+        <Property ID="Name" Value="Dangerous feed rate" />
+        <Property ID="Message" Value="This setting may harm the machine" />
+        <Property ID="Code" Value="1102" />
+        <Property ID="Severity" Value="50" />
+        <Selector ID="Behavior" Value="LevelMonitoring">
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="::gPerpendicularSettings.FeedRate" />
+            <Selector ID="LowLimitEnable" Value="Static">
+              <Property ID="Limit" Value="2" />
+            </Selector>
+            <Selector ID="HighLimitEnable" Value="Static">
+              <Property ID="Limit" Value="3" />
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group ID="[4]">
+        <Property ID="Name" Value="Dangerous torque" />
+        <Property ID="Message" Value="This setting may harm the machine" />
+        <Property ID="Code" Value="1103" />
+        <Property ID="Severity" Value="50" />
+        <Selector ID="Behavior" Value="LevelMonitoring">
+          <Group ID="Monitoring">
+            <Selector ID="HighLimitEnable" Value="Static">
+              <Property ID="Limit" Value="20" />
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group ID="[5]">
+        <Property ID="Name" Value="Dangerous log length" />
+        <Property ID="Message" Value="This setting may harm the machine" />
+        <Property ID="Code" Value="1104" />
+        <Property ID="Severity" Value="50" />
+        <Selector ID="Behavior" Value="LevelMonitoring">
+          <Group ID="Monitoring">
+            <Selector ID="LowLimitEnable" Value="Static">
+              <Property ID="Limit" Value="1" />
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
     </Group>
   </Element>
 </Configuration>

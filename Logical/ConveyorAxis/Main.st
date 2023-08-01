@@ -1,13 +1,12 @@
 
 PROGRAM _INIT
-	MpConveyorPar.Velocity := 0;
-	
 	MpAxisConveyor.Enable := TRUE;
 	MpAxisConveyor.MpLink := ADR(gConveyorAxis);
 	MpAxisConveyor.Parameters := ADR(MpConveyorPar);
 	
 	InitMachine := INIT;
 	WorkManMachine := WAIT;
+	WorkAutoMachine := WAIT;
 	
 END_PROGRAM
 
@@ -75,16 +74,36 @@ PROGRAM _CYCLIC
 			END_CASE;
 			
 		WORK_A:
-			MpConveyorPar.Velocity := gConveyorSettings.aiSpeed;
-			
-			IF gConveyorSettings.diRun THEN
-	  			MpAxisConveyor.MoveVelocity := TRUE;
-			END_IF;
-			
-			IF gOperatingPanel.StopSequence THEN
-				gConveyorSettings.diRun := FALSE;
-	  			MpAxisConveyor.MoveVelocity := FALSE;
-			END_IF;
+			CASE WorkAutoMachine OF
+				WAIT:
+					MpConveyorPar.Velocity := gConveyorSettings.aiSpeed;
+					MpAxisConveyor.MoveVelocity := FALSE;
+					
+					IF gConveyorSettings.diRun THEN
+						WorkAutoMachine := RUN;
+					END_IF;
+				RUN:
+					MpAxisConveyor.MoveVelocity := TRUE;
+					
+					IF NOT(MpConveyorPar.Velocity = gConveyorSettings.aiSpeed) THEN
+						WorkAutoMachine := UPDATE;
+					END_IF;
+					
+					IF NOT(gConveyorSettings.diRun) THEN
+						MpAxisConveyor.MoveVelocity := FALSE;
+						WorkAutoMachine := WAIT;
+					END_IF;
+					
+				UPDATE:
+					MpConveyorPar.Velocity := gConveyorSettings.aiSpeed;
+					MpAxisConveyor.Update := TRUE;
+				
+					IF MpAxisConveyor.UpdateDone THEN
+						MpAxisConveyor.Update := FALSE;
+						WorkAutoMachine := RUN;
+					END_IF;
+
+			END_CASE;
 	
 	END_CASE;
 

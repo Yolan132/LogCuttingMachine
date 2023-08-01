@@ -124,11 +124,24 @@ PROGRAM _CYCLIC
 					END_IF;
 					
 					IF gOperatingPanel.LoadRecipe1M THEN
+						RecipeLoadedStationaryFlag := TRUE;
+						gPerpendicularSettings.AutoReady := FALSE;
+						
 						WorkAutoMachine := LOAD_1M;
 					END_IF;
 					
 					IF gOperatingPanel.LoadRecipe2M THEN
+						RecipeLoadedStationaryFlag := TRUE;
+						gPerpendicularSettings.AutoReady := FALSE;
+						
 						WorkAutoMachine := LOAD_2M;
+					END_IF;
+					
+					IF gOperatingPanel.LoadRecipe3M THEN
+						RecipeLoadedStationaryFlag := TRUE;
+						gPerpendicularSettings.AutoReady := FALSE;
+						
+						WorkAutoMachine := LOAD_3M;
 					END_IF;
 				
 				CUT_SQ:
@@ -178,7 +191,12 @@ PROGRAM _CYCLIC
 						WorkAutoMachine := READY;
 					END_IF;	
 				
-				LOAD_1M:					
+				LOAD_1M:
+					gRecipeMenagement.Load1M := TRUE;
+					gPerpendicularSettings.AccTorque := gRecipe1M.AccTorqueLimit;
+					gPerpendicularSettings.FeedRate := gRecipe1M.SawFeedRate;
+					gPerpendicularSettings.WoodLogLength := gRecipe1M.WoodLogLength;
+					
 					McAcpCamPar.State[1].MasterFactor := 125;
 					McAcpCamPar.State[1].SlaveFactor := 300;
 					McAcpCamPar.State[1].CompensationMode := mcCOMP_BETWEEN_CAMS_DIRECT;
@@ -199,11 +217,22 @@ PROGRAM _CYCLIC
 					
 					IF SequencerPerpendicular.UpdateDone THEN
 						SequencerPerpendicular.Update := FALSE;
+						gRecipeMenagement.Load1M := FALSE;
 						
-						WorkAutoMachine := RETURN_SQ;
+						IF RecipeLoadedStationaryFlag THEN
+							RecipeLoadedStationaryFlag := FALSE;
+							WorkAutoMachine := READY;
+						ELSE
+							WorkAutoMachine := RETURN_SQ;
+						END_IF;
 					END_IF;
 				
 				LOAD_2M:
+					gRecipeMenagement.Load2M := TRUE;
+					gPerpendicularSettings.AccTorque := gRecipe2M.AccTorqueLimit;
+					gPerpendicularSettings.FeedRate := gRecipe2M.SawFeedRate;
+					gPerpendicularSettings.WoodLogLength := gRecipe2M.WoodLogLength;
+					
 					McAcpCamPar.State[1].MasterFactor := 125;
 					McAcpCamPar.State[1].SlaveFactor := 300;
 					McAcpCamPar.State[1].CompensationParameters.MasterCompDistance := 0.125;
@@ -222,11 +251,22 @@ PROGRAM _CYCLIC
 					
 					IF SequencerPerpendicular.UpdateDone THEN
 						SequencerPerpendicular.Update := FALSE;
+						gRecipeMenagement.Load2M := FALSE;
 						
-						WorkAutoMachine := RETURN_SQ;
+						IF RecipeLoadedStationaryFlag THEN
+							RecipeLoadedStationaryFlag := FALSE;
+							WorkAutoMachine := READY;
+						ELSE
+							WorkAutoMachine := RETURN_SQ;
+						END_IF;
 					END_IF;
 				
 				LOAD_3M:
+					gRecipeMenagement.Load3M := TRUE;
+					gPerpendicularSettings.AccTorque := gRecipe3M.AccTorqueLimit;
+					gPerpendicularSettings.FeedRate := gRecipe3M.SawFeedRate;
+					gPerpendicularSettings.WoodLogLength := gRecipe3M.WoodLogLength;
+					
 					McAcpCamPar.State[1].MasterFactor := 125;
 					McAcpCamPar.State[1].SlaveFactor := 200;
 					McAcpCamPar.State[1].CompensationParameters.MasterCompDistance := 0.125;
@@ -245,8 +285,14 @@ PROGRAM _CYCLIC
 					
 					IF SequencerPerpendicular.UpdateDone THEN
 						SequencerPerpendicular.Update := FALSE;
+						gRecipeMenagement.Load3M := FALSE;
 						
-						WorkAutoMachine := RETURN_SQ;
+						IF RecipeLoadedStationaryFlag THEN
+							RecipeLoadedStationaryFlag := FALSE;
+							WorkAutoMachine := READY;
+						ELSE
+							WorkAutoMachine := RETURN_SQ;
+						END_IF;
 					END_IF;
 				
 			END_CASE;

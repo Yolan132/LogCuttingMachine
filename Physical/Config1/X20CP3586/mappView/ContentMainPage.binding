@@ -15,5 +15,76 @@
 <Source xsi:type="opcUa" refId="::Main:SwitchModeToAuto" attribute="value" />
 <Target xsi:type="brease" contentRefId="ContentMainPage" widgetRefId="SwitchButton" attribute="value" />
 </Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::ConveyorAx:MpConveyorPar.Velocity" attribute="node" />
+<Target xsi:type="brease" contentRefId="ContentMainPage" widgetRefId="ConveyerSpeedOutput" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Main:ConveyorSpeed" attribute="node" />
+<Target xsi:type="brease" contentRefId="ContentMainPage" widgetRefId="ConveyerSpeedInput" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gPerpendicularSettings.AccTorque" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentMainPage" widgetRefId="AccOut" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gPerpendicularSettings.FeedRate" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentMainPage" widgetRefId="FeedRateOutput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gPerpendicularSettings.WoodLogLength" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentMainPage" widgetRefId="LogLengthOut" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gPerpendicularSettings.FeedRate" attribute="node" />
+<Target xsi:type="brease" contentRefId="ContentMainPage" widgetRefId="FeedOutput" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gPerpendicularSettings.AccTorque" attribute="node" />
+<Target xsi:type="brease" contentRefId="ContentMainPage" widgetRefId="AccOutput" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gPerpendicularSettings.WoodLogLength" attribute="node" />
+<Target xsi:type="brease" contentRefId="ContentMainPage" widgetRefId="LogOutput" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gOperatingPanel.LoadRecipe3M" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentMainPage" widgetRefId="Recipe3mLoad" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gOperatingPanel.LoadRecipe2M" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentMainPage" widgetRefId="Recipe2mLoad" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gOperatingPanel.LoadRecipe1M" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentMainPage" widgetRefId="Recipe1mLoad" attribute="value" />
+</Binding>
+
+
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gOperatingPanel.SaveRecipe3M" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentMainPage" widgetRefId="Recipe3mSave" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gOperatingPanel.SaveRecipe2M" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentMainPage" widgetRefId="Recipe2mSave" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gOperatingPanel.SaveRecipe1M" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentMainPage" widgetRefId="Recipe1mSave" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gPerpendicularSettings.WoodLogLength" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentMainPage" widgetRefId="LogInput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gPerpendicularSettings.AccTorque" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentMainPage" widgetRefId="AccInput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gPerpendicularSettings.FeedRate" attribute="value" />
+<Target xsi:type="brease" contentRefId="ContentMainPage" widgetRefId="FeedInput" attribute="value" />
+</Binding>
 </Bindings>
 </BindingsSet>

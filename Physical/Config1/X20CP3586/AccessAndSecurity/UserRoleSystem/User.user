@@ -28,4 +28,11 @@
       <Property ID="Role[1]" Value="Service" />
     </Group>
   </Element>
+  <Element ID="admin" Type="User">
+    <Property ID="UserID" Value="5" />
+    <Property ID="Password" Value="gvJ3k3ivUtRPhBBtbC6IKwTLzswKpxUDctE4CzlZ1H883gk1CbM=" />
+    <Group ID="Roles">
+      <Property ID="Role[1]" Value="Administrators" />
+    </Group>
+  </Element>
 </Configuration>
