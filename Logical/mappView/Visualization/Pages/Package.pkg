@@ -9,5 +9,11 @@
     <Object Type="Package">ServicePage</Object>
     <Object Type="Package">LoginPage</Object>
     <Object Type="Package">SwitchUserPage</Object>
+    <Object Type="Package">StronaGlowna</Object>
+    <Object Type="Package">StronaInicjalizacji</Object>
+    <Object Type="Package">StronaManualna</Object>
+    <Object Type="Package">StronaSerwisowa</Object>
+    <Object Type="Package">StronaLogowania</Object>
+    <Object Type="Package">StronaPrzelogowania</Object>
   </Objects>
 </Package>

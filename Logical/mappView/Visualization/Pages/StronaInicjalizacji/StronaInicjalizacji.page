@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pdef:Page xmlns:pdef="http://www.br-automation.com/iat2015/pageDefinition/v2" id="StronaInicjalizacji" layoutRefId="MainLayout">
+  <Assignments>
+    <Assignment type="Content" baseContentRefId="InicjalizacjaNaglowek" areaRefId="AreaHeader" backColor="rgba(169, 169, 169, 1)" />
+    <Assignment type="Content" baseContentRefId="InicjalizacjaInfo" areaRefId="AreaInfo" backColor="rgba(72, 209, 204, 1)" />
+    <Assignment type="Content" baseContentRefId="InicjalizacjaTresc" areaRefId="AreaContent" backColor="rgba(175, 238, 238, 1)" />
+    <Assignment type="Content" baseContentRefId="InicjalizacjaNaw" areaRefId="AreaNavigation" backColor="rgba(72, 209, 204, 1)" />
+  </Assignments>
+</pdef:Page>

@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="GlownaTresc_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gOperatingPanel.LoadRecipe3M" attribute="value" />
+<Target xsi:type="brease" contentRefId="GlownaTresc" widgetRefId="Recipe3mLoad" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gOperatingPanel.LoadRecipe2M" attribute="value" />
+<Target xsi:type="brease" contentRefId="GlownaTresc" widgetRefId="Recipe2mLoad" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gOperatingPanel.LoadRecipe1M" attribute="value" />
+<Target xsi:type="brease" contentRefId="GlownaTresc" widgetRefId="Recipe1mLoad" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Main:SwitchModeToAuto" attribute="value" />
+<Target xsi:type="brease" contentRefId="GlownaTresc" widgetRefId="SwitchButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Main:StopAutoSequence" attribute="value" />
+<Target xsi:type="brease" contentRefId="GlownaTresc" widgetRefId="StopButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Main:StartAutoSequence" attribute="value" />
+<Target xsi:type="brease" contentRefId="GlownaTresc" widgetRefId="StartButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gPerpendicularSettings.FeedRate" attribute="value" />
+<Target xsi:type="brease" contentRefId="GlownaTresc" widgetRefId="FeedOutput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gPerpendicularSettings.AccTorque" attribute="value" />
+<Target xsi:type="brease" contentRefId="GlownaTresc" widgetRefId="AccOutput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gPerpendicularSettings.WoodLogLength" attribute="value" />
+<Target xsi:type="brease" contentRefId="GlownaTresc" widgetRefId="LogOutput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gPerpendicularSettings.WoodLogLength" attribute="value" />
+<Target xsi:type="brease" contentRefId="GlownaTresc" widgetRefId="LogInput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gPerpendicularSettings.AccTorque" attribute="value" />
+<Target xsi:type="brease" contentRefId="GlownaTresc" widgetRefId="AccInput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gPerpendicularSettings.FeedRate" attribute="value" />
+<Target xsi:type="brease" contentRefId="GlownaTresc" widgetRefId="FeedInput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gOperatingPanel.SaveRecipe1M" attribute="value" />
+<Target xsi:type="brease" contentRefId="GlownaTresc" widgetRefId="Recipe1mSave" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gOperatingPanel.SaveRecipe2M" attribute="value" />
+<Target xsi:type="brease" contentRefId="GlownaTresc" widgetRefId="Recipe2mSave" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gOperatingPanel.SaveRecipe3M" attribute="value" />
+<Target xsi:type="brease" contentRefId="GlownaTresc" widgetRefId="Recipe3mSave" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::ConveyorAx:MpConveyorPar.Velocity" attribute="value" />
+<Target xsi:type="brease" contentRefId="GlownaTresc" widgetRefId="ConveyerSpeedOutput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::Main:ConveyorSpeed" attribute="value" />
+<Target xsi:type="brease" contentRefId="GlownaTresc" widgetRefId="ConveyerSpeedInput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gPerpendicularSettings.FeedRate" attribute="value" />
+<Target xsi:type="brease" contentRefId="GlownaTresc" widgetRefId="FeedRateOutput" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gPerpendicularSettings.AccTorque" attribute="value" />
+<Target xsi:type="brease" contentRefId="GlownaTresc" widgetRefId="AccOut" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gPerpendicularSettings.WoodLogLength" attribute="value" />
+<Target xsi:type="brease" contentRefId="GlownaTresc" widgetRefId="LogLengthOut" attribute="value" />
+</Binding>
+</Bindings>
+</BindingsSet>

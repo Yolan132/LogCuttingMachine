@@ -14,5 +14,15 @@
     <Object Type="File">MainServContent.eventbinding</Object>
     <Object Type="File">InitMainContent.binding</Object>
     <Object Type="File">InitMainContent.eventbinding</Object>
+    <Object Type="File">GlownaTresc.binding</Object>
+    <Object Type="File">GlownaInfo.binding</Object>
+    <Object Type="File">InicjalizacjaTresc.binding</Object>
+    <Object Type="File">SerwisowaTresc.binding</Object>
+    <Object Type="File">SerwisowaTresc.eventbinding</Object>
+    <Object Type="File">LogowanieTresc.eventbinding</Object>
+    <Object Type="File">PrzelogowanieInfo.binding</Object>
+    <Object Type="File">ManualnaTresc.binding</Object>
+    <Object Type="File">ManualnaInfo.binding</Object>
+    <Object Type="File">InicjalizacjaTresc.eventbinding</Object>
   </Objects>
 </Package>

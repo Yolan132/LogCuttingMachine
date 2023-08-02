@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Package SubType="PagePackage" PackageType="PagePackage" xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File" Description="Page description">StronaGlowna.page</Object>
+    <Object Type="File">GlownaTresc.content</Object>
+    <Object Type="File">GlownaNaw.content</Object>
+    <Object Type="File">GlownaNaglowek.content</Object>
+    <Object Type="File">GlownaInfo.content</Object>
+  </Objects>
+</Package>

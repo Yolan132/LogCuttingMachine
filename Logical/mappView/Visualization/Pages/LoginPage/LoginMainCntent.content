@@ -5,5 +5,6 @@
     <Widget xsi:type="widgets.brease.Label" id="Label1" top="110" left="640" width="90" zIndex="1" text="Logged in as:" margin="10px" />
     <Widget xsi:type="widgets.brease.LoginInfo" id="LoginInfo1" top="110" left="750" zIndex="2" margin="10px" />
     <Widget xsi:type="widgets.brease.NavigationButton" id="InitNavButton" top="460" left="700" zIndex="3" pageId="InitPage" text="GO" enable="false" />
+    <Widget xsi:type="widgets.brease.NavigationButton" id="NavigationButton1" top="40" left="40" zIndex="4" pageId="StronaLogowania" text="PL" />
   </Widgets>
 </Content>

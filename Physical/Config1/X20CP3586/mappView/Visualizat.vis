@@ -8,6 +8,12 @@
     <Page refId="ServicePage" />
     <Page refId="LoginPage" />
     <Page refId="SwitchUserPage" />
+    <Page refId="StronaGlowna" />
+    <Page refId="StronaInicjalizacji" />
+    <Page refId="StronaManualna" />
+    <Page refId="StronaSerwisowa" />
+    <Page refId="StronaLogowania" />
+    <Page refId="StronaPrzelogowania" />
   </Pages>
   <Navigations />
   <BindingsSets>
@@ -18,11 +24,21 @@
     <BindingsSet refId="SwitchUserInfoContent_binding" />
     <BindingsSet refId="InfoMainPage_binding" />
     <BindingsSet refId="InitMainContent_binding" />
+    <BindingsSet refId="GlownaTresc_binding" />
+    <BindingsSet refId="GlownaInfo_binding" />
+    <BindingsSet refId="InicjalizacjaTresc_binding" />
+    <BindingsSet refId="SerwisowaTresc_binding" />
+    <BindingsSet refId="PrzelogowanieInfo_binding" />
+    <BindingsSet refId="ManualnaTresc_binding" />
+    <BindingsSet refId="ManualnaInfo_binding" />
   </BindingsSets>
   <EventBindingsSets>
     <EventBindingsSet refId="LoginMainCntent_eventbinding" />
     <EventBindingsSet refId="MainServContent_eventbinding" />
     <EventBindingsSet refId="InitMainContent_eventbinding" />
+    <EventBindingsSet refId="SerwisowaTresc_eventbinding" />
+    <EventBindingsSet refId="LogowanieTresc_eventbinding" />
+    <EventBindingsSet refId="InicjalizacjaTresc_eventbinding" />
   </EventBindingsSets>
   <Dialogs />
   <Contents>
@@ -47,6 +63,27 @@
     <Content refId="InitHeadContent" />
     <Content refId="InitInfoContent" />
     <Content refId="InitNavContent" />
+    <Content refId="GlownaTresc" />
+    <Content refId="GlownaNaw" />
+    <Content refId="GlownaNaglowek" />
+    <Content refId="GlownaInfo" />
+    <Content refId="InicjalizacjaTresc" />
+    <Content refId="InicjalizacjaNaw" />
+    <Content refId="InicjalizacjaNaglowek" />
+    <Content refId="InicjalizacjaInfo" />
+    <Content refId="SerwisowaTresc" />
+    <Content refId="SerwisowaNaw" />
+    <Content refId="SerwisowaInfo" />
+    <Content refId="SerwisowaNaglowek" />
+    <Content refId="LogowanieTresc" />
+    <Content refId="PrzelogowanieTresc" />
+    <Content refId="PrzelogowanieNaw" />
+    <Content refId="PrzelogowanieInfo" />
+    <Content refId="PrzelogowanieNaglowek" />
+    <Content refId="ManualnaTresc" />
+    <Content refId="ManualanaNaw" />
+    <Content refId="ManualnaInfo" />
+    <Content refId="ManualnaNaglowek" />
   </Contents>
   <SnippetsSets />
   <VariablesSets />

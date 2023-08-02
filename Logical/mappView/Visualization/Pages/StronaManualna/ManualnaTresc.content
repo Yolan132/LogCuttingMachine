@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="ManualnaTresc" height="660" width="1160" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="SawBackwardButton" top="370" left="690" width="70" height="60" zIndex="0" text="Tyl" margin="10px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="SawForwardButton" top="490" left="690" width="70" height="60" zIndex="1" text="Przod" margin="10px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="SawRightButton" top="430" left="780" width="80" height="60" zIndex="2" text="Prawo" margin="10px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="SawLeftButton" top="430" left="570" width="80" height="60" zIndex="3" text="Lewo" margin="10px" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput1" top="40" left="980" zIndex="4" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="SetConvoyerVelocity" top="80" left="980" zIndex="5" />
+    <Widget xsi:type="widgets.brease.Label" id="ConvoyerVeloText" top="40" left="800" width="160" zIndex="6" text="Predkosc tasmociagu" />
+    <Widget xsi:type="widgets.brease.Label" id="SetConvoyerText" top="80" left="800" width="160" zIndex="7" text="Ustaw nowa predkosc" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="StartConvoyerButton" top="250" left="820" width="160" zIndex="8" text="Wlacz tasmociag" margin="10px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="StopConvoyerButton" top="310" left="820" width="160" zIndex="9" text="Wylacz tasmociag" margin="10px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="HomeParallelButton" top="290" left="120" width="151" zIndex="10" text="Bazuj rownolegle" margin="10px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="HomePerpendicularButton" top="351" left="120" width="151" zIndex="11" text="Bazuj prostopadle" margin="10px" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="PerpStepOut" top="140" left="240" zIndex="12" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="PerpStepIn" top="180" left="240" zIndex="13" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput3" top="40" left="240" zIndex="14" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="NumericInput2" top="80" left="240" zIndex="15" />
+    <Widget xsi:type="widgets.brease.Label" id="CurrentPerStep" top="140" left="40" width="200" zIndex="16" text="Obecny krok prostopadly:" />
+    <Widget xsi:type="widgets.brease.Label" id="SetNewPerStep" top="180" left="40" width="201" zIndex="17" text="Nowy krok prostopadly:" />
+    <Widget xsi:type="widgets.brease.Label" id="CurrentParStep" top="40" left="80" width="160" zIndex="18" text="Obecny krok rownolegly:" />
+    <Widget xsi:type="widgets.brease.Label" id="SetNewParStep" top="80" left="80" width="160" zIndex="19" text="nowy krok rownolegly:" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="StartSawButton" top="250" left="490" width="110" zIndex="20" text="Wlacz pile" margin="10px" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="StopSawButton" top="310" left="490" width="110" zIndex="21" text="Wylacz pile" margin="10px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label1" top="80" left="1080" width="20" zIndex="22" text="%" />
+    <Widget xsi:type="widgets.brease.Label" id="Label2" top="40" left="1080" width="40" zIndex="23" text="m/s" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton1" top="520" left="140" width="140" zIndex="24" text="Tryb manualny" />
+  </Widgets>
+</Content>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="InicjalizacjaInfo" height="660" width="160" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.Label" id="Label1" top="40" left="40" zIndex="0" text="Init Process:" />
+    <Widget xsi:type="widgets.brease.Label" id="Label2" top="80" left="0" width="160" zIndex="1" text="1. Push Init Button" />
+    <Widget xsi:type="widgets.brease.Label" id="Label3" top="120" left="0" width="160" zIndex="2" text="2. Wait for initialization" />
+    <Widget xsi:type="widgets.brease.Label" id="Label4" top="160" left="0" width="160" zIndex="3" text="3. Select mode" />
+    <Widget xsi:type="widgets.brease.Label" id="Label5" top="200" left="0" width="160" zIndex="4" text="4. Switch diStart switch" />
+    <Widget xsi:type="widgets.brease.Label" id="Label6" top="240" left="0" width="160" zIndex="5" text="5. Press continue" />
+  </Widgets>
+</Content>

@@ -18,6 +18,10 @@ PROGRAM _INIT
 	SequencePar.CamSequence.Set.Mode := mcAXIS_CAM_SEQ_SET_ON_UPDATE;
 	SequencePar.CamSequence.Get.Command := mcGET_PAR_ACTUAL;
 	SequencePar.CamSequence.Get.GetOnEnable := TRUE;
+	
+	gPerpendicularSettings.AccTorque := 10;
+	gPerpendicularSettings.FeedRate := 3;
+	gPerpendicularSettings.WoodLogLength := 1;
 	 
 END_PROGRAM
 

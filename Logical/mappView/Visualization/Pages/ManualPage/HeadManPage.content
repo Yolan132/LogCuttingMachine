@@ -3,5 +3,6 @@
   <Widgets>
     <Widget xsi:type="widgets.brease.Label" id="Label1" top="10" left="1260" width="90" zIndex="0" text="Logged in as:" margin="10px" />
     <Widget xsi:type="widgets.brease.LoginInfo" id="LoginInfo1" top="10" left="1370" width="110" zIndex="1" margin="10px" />
+    <Widget xsi:type="widgets.brease.NavigationButton" id="NavigationButton1" top="20" left="40" zIndex="2" pageId="StronaManualna" text="PL" />
   </Widgets>
 </Content>
